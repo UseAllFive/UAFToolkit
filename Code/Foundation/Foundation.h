@@ -14,3 +14,5 @@
 #import "NSObject+UAFAdditions.h"
 #import "NSString+UAFAdditions.h"
 #import "NSURL+UAFAdditions.h"
+
+#import "UAFObject.h"

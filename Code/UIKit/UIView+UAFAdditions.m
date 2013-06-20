@@ -136,11 +136,6 @@ NSTimeInterval kUAFFadeDuration = 0.2f;
   self.bounds = bounds;
 }
 
-#pragma mark - Boilerplate.
-
-- (void)commonInit {}
-- (void)commonAwake {}
-
 #pragma mark - Size Accessors.
 
 - (CGFloat)width {

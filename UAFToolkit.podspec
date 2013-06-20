@@ -29,13 +29,29 @@ Pod::Spec.new do |s|
 
   s.subspec 'UIKit' do |uis|
     uis.source_files  = 'Code/UIKit'
-    uis.frameworks    = 'Foundation', 'UIKit', 'QuartzCore'
+    uis.frameworks    = 'UIKit', 'QuartzCore'
     uis.dependency      'UAFToolkit/Utility'
   end
 
   s.subspec 'AVFoundation' do |avs|
     avs.source_files  = 'Code/AVFoundation'
     avs.frameworks    = 'Foundation', 'AVFoundation', 'CoreMedia'
+  end
+
+  s.subspec 'Boilerplate' do |bs|
+    bs.source_files   = 'Code/Boilerplate'
+    bs.dependency       'UAFToolkit/UIKit'
+    bs.dependency       'UAFToolkit/Navigation'
+  end
+
+  s.subspec 'Keyboard' do |ks|
+    ks.source_files   = 'Code/Keyboard'
+    ks.dependency       'UAFToolkit/UIKit'
+  end
+
+  s.subspec 'Navigation' do |ns|
+    ns.source_files   = 'Code/Navigation'
+    ns.dependency       'UAFToolkit/Boilerplate'
   end
 
 end

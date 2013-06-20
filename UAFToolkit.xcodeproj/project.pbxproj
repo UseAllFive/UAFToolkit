@@ -38,6 +38,17 @@
 		E3EFAA5817728B0800C8B397 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5717728B0700C8B397 /* AVFoundation.framework */; };
 		E3EFAA5A17728B2300C8B397 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5917728B2200C8B397 /* UIKit.framework */; };
 		E3EFAA5C1772917900C8B397 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5B1772917900C8B397 /* CoreMedia.framework */; };
+		E3EFAA631772E0F300C8B397 /* UAFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA621772E0F300C8B397 /* UAFNavigationController.m */; };
+		E3EFAA6A1772E80A00C8B397 /* UAFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA691772E80A00C8B397 /* UAFViewController.m */; };
+		E3EFAA6E1772EA0D00C8B397 /* UAFView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA6D1772EA0D00C8B397 /* UAFView.m */; };
+		E3EFAA721772EDA000C8B397 /* UAFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA711772EDA000C8B397 /* UAFScrollView.m */; };
+		E3EFAA7B1772F08D00C8B397 /* UAFCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA741772F08900C8B397 /* UAFCollectionReusableView.m */; };
+		E3EFAA7C1772F08D00C8B397 /* UAFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA761772F08A00C8B397 /* UAFCollectionViewCell.m */; };
+		E3EFAA7D1772F08D00C8B397 /* UAFCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA781772F08B00C8B397 /* UAFCollectionViewController.m */; };
+		E3EFAA7E1772F08D00C8B397 /* UAFControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA7A1772F08D00C8B397 /* UAFControl.m */; };
+		E3EFAA831772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA821772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m */; };
+		E3EFAA861772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA851772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m */; };
+		E3EFAA8D1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA8C1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +133,37 @@
 		E3EFAA5717728B0700C8B397 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E3EFAA5917728B2200C8B397 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3EFAA5B1772917900C8B397 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E3EFAA611772E0F300C8B397 /* UAFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFNavigationController.h; sourceTree = "<group>"; };
+		E3EFAA621772E0F300C8B397 /* UAFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFNavigationController.m; sourceTree = "<group>"; };
+		E3EFAA641772E4B900C8B397 /* Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navigation.h; sourceTree = "<group>"; };
+		E3EFAA651772E62700C8B397 /* UAFInertialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFInertialViewController.h; sourceTree = "<group>"; };
+		E3EFAA671772E72700C8B397 /* UAFNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFNavigationItem.h; sourceTree = "<group>"; };
+		E3EFAA681772E80A00C8B397 /* UAFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFViewController.h; sourceTree = "<group>"; };
+		E3EFAA691772E80A00C8B397 /* UAFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFViewController.m; sourceTree = "<group>"; };
+		E3EFAA6B1772E93900C8B397 /* Boilerplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boilerplate.h; sourceTree = "<group>"; };
+		E3EFAA6C1772EA0D00C8B397 /* UAFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFView.h; sourceTree = "<group>"; };
+		E3EFAA6D1772EA0D00C8B397 /* UAFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFView.m; sourceTree = "<group>"; };
+		E3EFAA6F1772EACF00C8B397 /* UAFViewState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAFViewState.h; sourceTree = "<group>"; };
+		E3EFAA701772ED9F00C8B397 /* UAFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFScrollView.h; sourceTree = "<group>"; };
+		E3EFAA711772EDA000C8B397 /* UAFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFScrollView.m; sourceTree = "<group>"; };
+		E3EFAA731772F08800C8B397 /* UAFCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFCollectionReusableView.h; sourceTree = "<group>"; };
+		E3EFAA741772F08900C8B397 /* UAFCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFCollectionReusableView.m; sourceTree = "<group>"; };
+		E3EFAA751772F08900C8B397 /* UAFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFCollectionViewCell.h; sourceTree = "<group>"; };
+		E3EFAA761772F08A00C8B397 /* UAFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFCollectionViewCell.m; sourceTree = "<group>"; };
+		E3EFAA771772F08B00C8B397 /* UAFCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFCollectionViewController.h; sourceTree = "<group>"; };
+		E3EFAA781772F08B00C8B397 /* UAFCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFCollectionViewController.m; sourceTree = "<group>"; };
+		E3EFAA791772F08C00C8B397 /* UAFControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFControl.h; sourceTree = "<group>"; };
+		E3EFAA7A1772F08D00C8B397 /* UAFControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFControl.m; sourceTree = "<group>"; };
+		E3EFAA7F1772F1DF00C8B397 /* Boilerplate_UICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boilerplate_UICollectionView.h; sourceTree = "<group>"; };
+		E3EFAA801772F6AF00C8B397 /* Keyboard_Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard_Resizing.h; sourceTree = "<group>"; };
+		E3EFAA811772F70800C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UAFAdditions_KeyboardResizing.h"; sourceTree = "<group>"; };
+		E3EFAA821772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UAFAdditions_KeyboardResizing.m"; sourceTree = "<group>"; };
+		E3EFAA841772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UAFAdditions_KeyboardResizing.h"; sourceTree = "<group>"; };
+		E3EFAA851772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UAFAdditions_KeyboardResizing.m"; sourceTree = "<group>"; };
+		E3EFAA8A1772F83800C8B397 /* UAFKeyboardResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFKeyboardResizing.h; sourceTree = "<group>"; };
+		E3EFAA8B1772FCC900C8B397 /* UIViewController+UAFAdditions_Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UAFAdditions_Navigation.h"; sourceTree = "<group>"; };
+		E3EFAA8C1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UAFAdditions_Navigation.m"; sourceTree = "<group>"; };
+		E3EFAA8E177301E300C8B397 /* UAFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +231,9 @@
 				E3EFAA1B177270FD00C8B397 /* Foundation */,
 				E3EFAA351772754A00C8B397 /* UIKit */,
 				E3EFAA52177281F500C8B397 /* AVFoundation */,
+				E3EFAA5E1772E0EB00C8B397 /* Boilerplate */,
+				E3EFAA5F1772E0ED00C8B397 /* Keyboard */,
+				E3EFAA601772E0F000C8B397 /* Navigation */,
 			);
 			path = UAFToolkit;
 			sourceTree = "<group>";
@@ -283,6 +328,8 @@
 				E3EFAA461772754B00C8B397 /* UIView+UAFAdditions.m */,
 				E3EFAA471772754B00C8B397 /* UIViewController+UAFAdditions.h */,
 				E3EFAA481772754B00C8B397 /* UIViewController+UAFAdditions.m */,
+				E3EFAA651772E62700C8B397 /* UAFInertialViewController.h */,
+				E3EFAA6F1772EACF00C8B397 /* UAFViewState.h */,
 			);
 			name = UIKit;
 			path = Code/UIKit;
@@ -298,6 +345,75 @@
 			name = AVFoundation;
 			path = Code/AVFoundation;
 			sourceTree = SOURCE_ROOT;
+		};
+		E3EFAA5E1772E0EB00C8B397 /* Boilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA6B1772E93900C8B397 /* Boilerplate.h */,
+				E3EFAA7F1772F1DF00C8B397 /* Boilerplate_UICollectionView.h */,
+				E3EFAA8E177301E300C8B397 /* UAFObject.h */,
+				E3EFAA681772E80A00C8B397 /* UAFViewController.h */,
+				E3EFAA691772E80A00C8B397 /* UAFViewController.m */,
+				E3EFAA6C1772EA0D00C8B397 /* UAFView.h */,
+				E3EFAA6D1772EA0D00C8B397 /* UAFView.m */,
+				E3EFAA791772F08C00C8B397 /* UAFControl.h */,
+				E3EFAA7A1772F08D00C8B397 /* UAFControl.m */,
+				E3EFAA701772ED9F00C8B397 /* UAFScrollView.h */,
+				E3EFAA711772EDA000C8B397 /* UAFScrollView.m */,
+				E3EFAA881772F76B00C8B397 /* UICollectionView */,
+			);
+			name = Boilerplate;
+			path = Code/Boilerplate;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3EFAA5F1772E0ED00C8B397 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA801772F6AF00C8B397 /* Keyboard_Resizing.h */,
+				E3EFAA891772F7DF00C8B397 /* Resizing */,
+			);
+			name = Keyboard;
+			path = Code/Keyboard;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3EFAA601772E0F000C8B397 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA641772E4B900C8B397 /* Navigation.h */,
+				E3EFAA611772E0F300C8B397 /* UAFNavigationController.h */,
+				E3EFAA621772E0F300C8B397 /* UAFNavigationController.m */,
+				E3EFAA671772E72700C8B397 /* UAFNavigationItem.h */,
+				E3EFAA8B1772FCC900C8B397 /* UIViewController+UAFAdditions_Navigation.h */,
+				E3EFAA8C1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m */,
+			);
+			name = Navigation;
+			path = Code/Navigation;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3EFAA881772F76B00C8B397 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA731772F08800C8B397 /* UAFCollectionReusableView.h */,
+				E3EFAA741772F08900C8B397 /* UAFCollectionReusableView.m */,
+				E3EFAA751772F08900C8B397 /* UAFCollectionViewCell.h */,
+				E3EFAA761772F08A00C8B397 /* UAFCollectionViewCell.m */,
+				E3EFAA771772F08B00C8B397 /* UAFCollectionViewController.h */,
+				E3EFAA781772F08B00C8B397 /* UAFCollectionViewController.m */,
+			);
+			name = UICollectionView;
+			sourceTree = "<group>";
+		};
+		E3EFAA891772F7DF00C8B397 /* Resizing */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA811772F70800C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.h */,
+				E3EFAA821772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m */,
+				E3EFAA841772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.h */,
+				E3EFAA851772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m */,
+				E3EFAA8A1772F83800C8B397 /* UAFKeyboardResizing.h */,
+			);
+			name = Resizing;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -433,6 +549,17 @@
 				E3EFAA501772754B00C8B397 /* UIView+UAFAdditions.m in Sources */,
 				E3EFAA511772754B00C8B397 /* UIViewController+UAFAdditions.m in Sources */,
 				E3EFAA55177281F700C8B397 /* AVPlayerItem+UAFAdditions.m in Sources */,
+				E3EFAA631772E0F300C8B397 /* UAFNavigationController.m in Sources */,
+				E3EFAA6A1772E80A00C8B397 /* UAFViewController.m in Sources */,
+				E3EFAA6E1772EA0D00C8B397 /* UAFView.m in Sources */,
+				E3EFAA721772EDA000C8B397 /* UAFScrollView.m in Sources */,
+				E3EFAA7B1772F08D00C8B397 /* UAFCollectionReusableView.m in Sources */,
+				E3EFAA7C1772F08D00C8B397 /* UAFCollectionViewCell.m in Sources */,
+				E3EFAA7D1772F08D00C8B397 /* UAFCollectionViewController.m in Sources */,
+				E3EFAA7E1772F08D00C8B397 /* UAFControl.m in Sources */,
+				E3EFAA831772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m in Sources */,
+				E3EFAA861772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m in Sources */,
+				E3EFAA8D1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

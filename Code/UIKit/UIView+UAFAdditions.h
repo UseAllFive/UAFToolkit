@@ -127,21 +127,6 @@ extern NSTimeInterval kUAFFadeDuration;
  */
 @property (nonatomic) CGSize size;
 
-///------------------
-/// @name Boilerplate
-///------------------
-
-/**
- Useful for when multiple constructors need to share common initialization
- logic. Default implementation does nothing.
- */
-- (void)commonInit;
-/**
- Useful for when multiple constructors for views using nibs need to share common
- initialization logic. Default implementation does nothing.
- */
-- (void)commonAwake;
-
 ///--------------
 /// @name Helpers
 ///--------------

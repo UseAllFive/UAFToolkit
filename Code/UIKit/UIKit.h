@@ -15,3 +15,6 @@
 #import "UIScrollView+UAFAdditions.h"
 #import "UIView+UAFAdditions.h"
 #import "UIViewController+UAFAdditions.h"
+
+#import "UAFInertialViewController.h"
+#import "UAFViewState.h"

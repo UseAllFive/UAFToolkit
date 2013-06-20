@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
                      :tag => "0.1.0" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Code', 'Code/**/*.{h,m}'
-  s.frameworks   = 'Foundation', 'UIKit', 'AVFoundation', 'QuartzCore', 'CoreGraphics'
+  s.frameworks   = 'Foundation', 'UIKit', 'AVFoundation', 'CoreMedia', 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
 end

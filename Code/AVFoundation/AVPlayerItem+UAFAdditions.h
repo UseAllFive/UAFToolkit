@@ -7,6 +7,7 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
 
 extern NSString *const kUAFVolumeChangeNotification;
 extern NSString *const kUAFVolumeNotificationParameter;

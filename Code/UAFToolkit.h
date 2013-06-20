@@ -12,6 +12,8 @@
 //-- TODO: Firstly: Testing integration.
 //-- TODO: Firstly: Doc integration.
 //-- TODO: Firstly: Working main and sub Podspec's.
+//-- TODO: Also: Split Foundation a little more.
+//-- TODO: Also: Add Boilerplate.
 
 #import "Utility.h"
 #import "Foundation.h"

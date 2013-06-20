@@ -10,6 +10,8 @@
 
 #import "UIScrollView+UAFAdditions.h"
 
+#import "UAFDebugUtilities.h"
+
 @implementation UIViewController (UAFAdditions)
 
 #pragma mark - Boilerplate.

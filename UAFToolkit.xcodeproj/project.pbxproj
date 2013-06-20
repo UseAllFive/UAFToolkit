@@ -37,6 +37,7 @@
 		E3EFAA55177281F700C8B397 /* AVPlayerItem+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA54177281F700C8B397 /* AVPlayerItem+UAFAdditions.m */; };
 		E3EFAA5817728B0800C8B397 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5717728B0700C8B397 /* AVFoundation.framework */; };
 		E3EFAA5A17728B2300C8B397 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5917728B2200C8B397 /* UIKit.framework */; };
+		E3EFAA5C1772917900C8B397 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5B1772917900C8B397 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		E3EFAA561772820D00C8B397 /* AVFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFoundation.h; sourceTree = "<group>"; };
 		E3EFAA5717728B0700C8B397 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E3EFAA5917728B2200C8B397 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E3EFAA5B1772917900C8B397 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3EFAA5C1772917900C8B397 /* CoreMedia.framework in Frameworks */,
 				E3EFAA5A17728B2300C8B397 /* UIKit.framework in Frameworks */,
 				E3EFAA5817728B0800C8B397 /* AVFoundation.framework in Frameworks */,
 				E3553F9017725CF800762627 /* Foundation.framework in Frameworks */,
@@ -170,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				E3EFAA5717728B0700C8B397 /* AVFoundation.framework */,
+				E3EFAA5B1772917900C8B397 /* CoreMedia.framework */,
 				E3553F8F17725CF800762627 /* Foundation.framework */,
 				E3553F9E17725CF800762627 /* SenTestingKit.framework */,
 				E3EFAA5917728B2200C8B397 /* UIKit.framework */,

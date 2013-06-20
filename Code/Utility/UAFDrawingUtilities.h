@@ -3,7 +3,7 @@
 //  UAFToolkit
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2013 UseAllFive. All rights reserved.
+//  Copyright (c) 2013 UseAllFive. See license.
 //
 
 #import <UIKit/UIKit.h>

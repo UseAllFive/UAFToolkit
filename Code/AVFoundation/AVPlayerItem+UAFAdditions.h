@@ -3,7 +3,7 @@
 //  UAFToolkit
 //
 //  Created by Peng Wang on 2/21/13.
-//  Copyright (c) 2013 UseAllFive. All rights reserved.
+//  Copyright (c) 2013 UseAllFive. See license.
 //
 
 #import <AVFoundation/AVFoundation.h>

@@ -16,3 +16,6 @@ build
 *.pbxuser
 *.perspectivev3
 *.xcuserdatad
+
+# the docs
+Documentation

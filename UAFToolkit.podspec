@@ -3,7 +3,10 @@ Pod::Spec.new do |s|
   s.version      = "0.1.0"
   s.summary      = "UAFToolkit makes life easier."
   s.description  = <<-DESC
-                    UAFToolkit derives mainly from SSToolkit. In addition to modernizing SSToolkit, it builds on the latter with other additions, including improved modularity. UAFToolkit is also meant to selectively track SSToolkit.
+                    UAFToolkit derives mainly from SSToolkit. In addition to
+                    modernizing SSToolkit, it builds on the latter with other
+                    additions, including improved modularity. UAFToolkit is also
+                    meant to selectively track SSToolkit.
                    DESC
   s.homepage     = "http://useallfive.github.io/UAFToolkit"
   s.license      = "MIT"
@@ -12,7 +15,27 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://bitbucket.org/hlfcoding/uaftoolkit.git",
                      :tag => "0.1.0" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'Code', 'Code/**/*.{h,m}'
-  s.frameworks   = 'Foundation', 'UIKit', 'AVFoundation', 'CoreMedia', 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
+
+  s.subspec 'Utility' do |us|
+    us.source_files   = 'Code/Utility'
+    us.frameworks     = 'Foundation', 'CoreGraphics'
+  end
+
+  s.subspec 'Foundation' do |fs|
+    fs.source_files   = 'Code/Foundation'
+    fs.frameworks     = 'Foundation'
+  end
+
+  s.subspec 'UIKit' do |uis|
+    uis.source_files  = 'Code/UIKit'
+    uis.frameworks    = 'Foundation', 'UIKit', 'QuartzCore'
+    uis.dependency      'UAFToolkit/Utility'
+  end
+
+  s.subspec 'AVFoundation' do |avs|
+    avs.source_files  = 'Code/AVFoundation'
+    avs.frameworks    = 'Foundation', 'AVFoundation', 'CoreMedia'
+  end
+
 end

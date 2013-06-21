@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UAFDebugUtilities.h"
+
 //-- UIPanGestureRecognizerDirection mirrors UISwipeGestureRecognizerDirection.
 typedef NS_OPTIONS(NSUInteger, UIPanGestureRecognizerDirection) {
   UIPanGestureRecognizerDirectionRight = 1 << 0,

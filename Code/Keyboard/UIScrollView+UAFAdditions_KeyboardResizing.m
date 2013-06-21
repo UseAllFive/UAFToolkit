@@ -8,10 +8,6 @@
 
 #import "UIScrollView+UAFAdditions_KeyboardResizing.h"
 
-#import "UAFDrawingUtilities.h"
-#import "UIView+UAFAdditions.h"
-#import "UIScreen+UAFAdditions.h"
-
 @implementation UIScrollView (UAFAdditions_KeyboardResizing)
 
 - (void)keyboardDidShow:(NSNotification *)notification

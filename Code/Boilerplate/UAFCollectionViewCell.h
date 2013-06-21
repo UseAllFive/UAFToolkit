@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "UAFObject.h"
-#ifdef UAF_VIEW_STATE
-#import "UAFViewState.h"
-#endif
+#import "UAFViewOptions.h"
+
 @interface UAFCollectionViewCell : UICollectionViewCell
 
 <UAFObject>
 
-#ifdef UAF_VIEW_STATE
 @property (nonatomic) UAFViewState viewState;
-#endif
 
 @end

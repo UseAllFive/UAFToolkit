@@ -3,12 +3,10 @@
 //  UAFToolkit
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2012 UseAllFive. See license.
+//  Copyright (c) 2012-2013UseAllFive. See license.
 //
 
 #import "NSDictionary+UAFAdditions.h"
-#import "NSString+UAFAdditions.h"
-#import "NSData+UAFAdditions.h"
 
 @interface NSDictionary (UAFPrivateAdditions)
 - (NSData *)_prehashData;

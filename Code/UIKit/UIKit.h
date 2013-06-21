@@ -10,11 +10,7 @@
 #import "UIColor+UAFAdditions.h"
 #import "UIControl+UAFAdditions.h"
 #import "UIImage+UAFAdditions.h"
-#import "UIPanGestureRecognizer+UAFAdditions.h"
 #import "UIScreen+UAFAdditions.h"
 #import "UIScrollView+UAFAdditions.h"
 #import "UIView+UAFAdditions.h"
 #import "UIViewController+UAFAdditions.h"
-
-#import "UAFInertialViewController.h"
-#import "UAFViewState.h"

@@ -4,10 +4,12 @@
 
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2012 UseAllFive. See license.
+//  Copyright (c) 2012-2013UseAllFive. See license.
 //
 
 #import <UIKit/UIKit.h>
+
+#import "UIView+UAFAdditions.h"
 
 /**
  Provides extensions to `UIScrollView` for various common tasks.

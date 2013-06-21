@@ -8,8 +8,6 @@
 
 #import "UIViewController+UAFAdditions_KeyboardResizing.h"
 
-#import "UAFDebugUtilities.h"
-
 @implementation UIViewController (UAFAdditions_KeyboardResizing)
 
 - (BOOL)setupResizingWithKeyboardForView:(UIScrollView *)view

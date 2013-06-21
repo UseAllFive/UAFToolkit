@@ -22,4 +22,9 @@
  */
 - (void)_commonAwake;
 
+@optional
+
+@property (nonatomic) BOOL didCommonInit;
+@property (nonatomic) BOOL didCommonAwake;
+
 @end

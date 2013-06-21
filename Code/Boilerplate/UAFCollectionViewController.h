@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "UAFObject.h"
 #import "UAFNavigationItem.h"
 
-@interface UAFCollectionViewController : UIViewController
+@interface UAFCollectionViewController : UICollectionViewController
 
 <UAFObject, UAFNavigationItem>
 

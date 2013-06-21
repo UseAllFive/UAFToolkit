@@ -19,3 +19,8 @@ build
 
 # the docs
 Documentation
+
+# the pods
+*.xcworkspace
+Pods
+!Pods/Pods-acknowledgements

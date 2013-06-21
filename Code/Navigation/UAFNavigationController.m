@@ -6,6 +6,4 @@
 //  Copyright (c) 2013 UseAllFive. See license.
 //
 
-#import <UIKit/UIKit.h>
-
 const NSTimeInterval kUAFNavigationDurationNone = 0.0f;

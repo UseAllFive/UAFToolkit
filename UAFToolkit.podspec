@@ -27,15 +27,10 @@ Pod::Spec.new do |s|
     fs.frameworks     = 'Foundation'
   end
 
-  s.subspec 'UIKit' do |uis|
-    uis.source_files  = 'Code/UIKit'
-    uis.frameworks    = 'UIKit', 'QuartzCore'
-    uis.dependency      'UAFToolkit/Utility'
-  end
-
-  s.subspec 'AVFoundation' do |avs|
-    avs.source_files  = 'Code/AVFoundation'
-    avs.frameworks    = 'Foundation', 'AVFoundation', 'CoreMedia'
+  s.subspec 'UIKit' do |uiks|
+    uiks.source_files  = 'Code/UIKit'
+    uiks.frameworks    = 'UIKit', 'QuartzCore'
+    uiks.dependency      'UAFToolkit/Utility'
   end
 
   s.subspec 'Boilerplate' do |bs|
@@ -52,6 +47,29 @@ Pod::Spec.new do |s|
   s.subspec 'Navigation' do |ns|
     ns.source_files   = 'Code/Navigation'
     ns.dependency       'UAFToolkit/Boilerplate'
+    ns.dependency       'UAFToolkit/UI'
+  end
+
+  s.subspec 'Storage' do |ss|
+    ss.source_files   = 'Code/Storage'
+    ss.dependency       'RestKit/Network'
+    ss.dependency       'UAFToolkit/Utility'
+  end
+
+  s.subspec 'StoreKit' do |ss|
+    ss.source_files   = 'Code/StoreKit'
+    ss.frameworks     = 'StoreKit', 'CoreData'
+  end
+
+  s.subspec 'SFX' do |sfx|
+    sfx.source_files  = 'Code/SFX'
+    sfx.frameworks    = 'Foundation', 'AVFoundation', 'CoreMedia', 'AudioToolbox'
+  end
+
+  s.subspec 'UI' do |uis|
+    uis.source_files  = 'Code/UI'
+    uis.dependency      'UAFToolkit/Utility'
+    uis.dependency      'UAFToolkit/Boilerplate'
   end
 
 end

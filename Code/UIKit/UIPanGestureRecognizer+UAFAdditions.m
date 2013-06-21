@@ -8,8 +8,6 @@
 
 #import "UIPanGestureRecognizer+UAFAdditions.h"
 
-#import "UAFDebugUtilities.h"
-
 #if RUN_KIF_TESTS
 static CGFloat const kUAFPanAsSwipeMinVelocity = 1.0f;
 #else

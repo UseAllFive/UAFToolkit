@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "UAFKeyboardResizing.h"
+#import "UIView+UAFAdditions.h"
+#import "UIScreen+UAFAdditions.h"
+
+#import "UAFDrawingUtilities.h"
 
 @interface UIScrollView (UAFAdditions_KeyboardResizing)
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FF5D1B0EBD741D49F9F07AF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5BDBEF74AE4F339F55A4A0 /* libPods.a */; };
 		E3553F9017725CF800762627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3553F8F17725CF800762627 /* Foundation.framework */; };
 		E3553F9F17725CF800762627 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3553F9E17725CF800762627 /* SenTestingKit.framework */; };
 		E3553FA217725CF800762627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3553F8F17725CF800762627 /* Foundation.framework */; };
@@ -16,6 +17,20 @@
 		E3553FCB1772659D00762627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3553FC91772659D00762627 /* InfoPlist.strings */; };
 		E3553FD21772668900762627 /* UAFDispatchUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E3553FD11772668900762627 /* UAFDispatchUtilities.m */; };
 		E3553FD6177268D700762627 /* UAFDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E3553FD5177268D700762627 /* UAFDebugUtilities.m */; };
+		E3890B1F17743B6700292365 /* AVPlayerItem+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B1917743B6700292365 /* AVPlayerItem+UAFAdditions.m */; };
+		E3890B2017743B6700292365 /* UAFUISoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B1C17743B6700292365 /* UAFUISoundController.m */; };
+		E3890B2117743B6700292365 /* UIView+UAFAdditions_SFX.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B1E17743B6700292365 /* UIView+UAFAdditions_SFX.m */; };
+		E3890B2B177446D800292365 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3890B2A177446D700292365 /* AudioToolbox.framework */; };
+		E3890B3317744CD000292365 /* UAFVideoResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B3217744CD000292365 /* UAFVideoResourceManager.m */; };
+		E3890B361774527700292365 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3890B351774527700292365 /* StoreKit.framework */; };
+		E3890B381774530400292365 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3890B371774530400292365 /* CoreData.framework */; };
+		E3890B3D177456BC00292365 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3890B3C177456BC00292365 /* QuartzCore.framework */; };
+		E3890B3F17745B4300292365 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3890B3E17745B4100292365 /* libcommonCrypto.dylib */; };
+		E3890B4E1774628F00292365 /* UAFActivityIndicatorDotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B451774628F00292365 /* UAFActivityIndicatorDotsView.m */; };
+		E3890B4F1774628F00292365 /* UAFToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B481774628F00292365 /* UAFToastView.m */; };
+		E3890B53177462D500292365 /* UIView+UAFAdditions_Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B52177462D500292365 /* UIView+UAFAdditions_Effects.m */; };
+		E3890B57177468C800292365 /* UAFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B56177468C800292365 /* UAFTextField.m */; };
+		E3890B5B177472F100292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E3890B5A177472EE00292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m */; };
 		E3EFAA1917726D4A00C8B397 /* UAFDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA1817726D4A00C8B397 /* UAFDrawingUtilities.m */; };
 		E3EFAA2C177270FD00C8B397 /* NSArray+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA1D177270FD00C8B397 /* NSArray+UAFAdditions.m */; };
 		E3EFAA2D177270FD00C8B397 /* NSBundle+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA1F177270FD00C8B397 /* NSBundle+UAFAdditions.m */; };
@@ -34,7 +49,6 @@
 		E3EFAA4F1772754B00C8B397 /* UIScrollView+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA441772754B00C8B397 /* UIScrollView+UAFAdditions.m */; };
 		E3EFAA501772754B00C8B397 /* UIView+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA461772754B00C8B397 /* UIView+UAFAdditions.m */; };
 		E3EFAA511772754B00C8B397 /* UIViewController+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA481772754B00C8B397 /* UIViewController+UAFAdditions.m */; };
-		E3EFAA55177281F700C8B397 /* AVPlayerItem+UAFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFAA54177281F700C8B397 /* AVPlayerItem+UAFAdditions.m */; };
 		E3EFAA5817728B0800C8B397 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5717728B0700C8B397 /* AVFoundation.framework */; };
 		E3EFAA5A17728B2300C8B397 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5917728B2200C8B397 /* UIKit.framework */; };
 		E3EFAA5C1772917900C8B397 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EFAA5B1772917900C8B397 /* CoreMedia.framework */; };
@@ -74,6 +88,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E5BDBEF74AE4F339F55A4A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C1EE9F76EC4AAF8A391A0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E3370F2F177473B2008A8773 /* UIKit_Layouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKit_Layouts.h; sourceTree = "<group>"; };
+		E3370F30177473DC008A8773 /* UAFCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
 		E3553F8C17725CF800762627 /* libUAFToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUAFToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3553F8F17725CF800762627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3553F9D17725CF800762627 /* UAFToolkitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UAFToolkitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +107,41 @@
 		E3553FD3177267E800762627 /* UAFToolkit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UAFToolkit-Prefix.pch"; path = "Resources/UAFToolkit-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		E3553FD4177268D700762627 /* UAFDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAFDebugUtilities.h; path = Code/Utility/UAFDebugUtilities.h; sourceTree = SOURCE_ROOT; };
 		E3553FD5177268D700762627 /* UAFDebugUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAFDebugUtilities.m; path = Code/Utility/UAFDebugUtilities.m; sourceTree = SOURCE_ROOT; };
+		E3890B0E17741B5700292365 /* UIKit_Gestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKit_Gestures.h; sourceTree = "<group>"; };
+		E3890B1817743B6700292365 /* AVPlayerItem+UAFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVPlayerItem+UAFAdditions.h"; sourceTree = "<group>"; };
+		E3890B1917743B6700292365 /* AVPlayerItem+UAFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerItem+UAFAdditions.m"; sourceTree = "<group>"; };
+		E3890B1A17743B6700292365 /* SFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFX.h; sourceTree = "<group>"; };
+		E3890B1B17743B6700292365 /* UAFUISoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFUISoundController.h; sourceTree = "<group>"; };
+		E3890B1C17743B6700292365 /* UAFUISoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFUISoundController.m; sourceTree = "<group>"; };
+		E3890B1D17743B6700292365 /* UIView+UAFAdditions_SFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UAFAdditions_SFX.h"; sourceTree = "<group>"; };
+		E3890B1E17743B6700292365 /* UIView+UAFAdditions_SFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UAFAdditions_SFX.m"; sourceTree = "<group>"; };
+		E3890B25177444CC00292365 /* StoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKit.h; sourceTree = "<group>"; };
+		E3890B27177444CD00292365 /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		E3890B2A177446D700292365 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E3890B2C1774471D00292365 /* UAFLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFLocalStorage.h; sourceTree = "<group>"; };
+		E3890B3117744CD000292365 /* UAFVideoResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFVideoResourceManager.h; sourceTree = "<group>"; };
+		E3890B3217744CD000292365 /* UAFVideoResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFVideoResourceManager.m; sourceTree = "<group>"; };
+		E3890B341774523A00292365 /* UAFPurchaseableDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAFPurchaseableDataObject.h; sourceTree = "<group>"; };
+		E3890B351774527700292365 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E3890B371774530400292365 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E3890B3C177456BC00292365 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E3890B3E17745B4100292365 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		E3890B441774628F00292365 /* UAFActivityIndicatorDotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFActivityIndicatorDotsView.h; sourceTree = "<group>"; };
+		E3890B451774628F00292365 /* UAFActivityIndicatorDotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFActivityIndicatorDotsView.m; sourceTree = "<group>"; };
+		E3890B461774628F00292365 /* UAFInertialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFInertialViewController.h; sourceTree = "<group>"; };
+		E3890B471774628F00292365 /* UAFToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFToastView.h; sourceTree = "<group>"; };
+		E3890B481774628F00292365 /* UAFToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFToastView.m; sourceTree = "<group>"; };
+		E3890B491774628F00292365 /* UAFViewDynamics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFViewDynamics.h; sourceTree = "<group>"; };
+		E3890B4A1774628F00292365 /* UAFViewOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFViewOptions.h; sourceTree = "<group>"; };
+		E3890B4B1774628F00292365 /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
+		E3890B4C1774628F00292365 /* UI_Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Components.h; sourceTree = "<group>"; };
+		E3890B4D1774628F00292365 /* UI_Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Effects.h; sourceTree = "<group>"; };
+		E3890B51177462D400292365 /* UIView+UAFAdditions_Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UAFAdditions_Effects.h"; sourceTree = "<group>"; };
+		E3890B52177462D500292365 /* UIView+UAFAdditions_Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UAFAdditions_Effects.m"; sourceTree = "<group>"; };
+		E3890B55177468C800292365 /* UAFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFTextField.h; sourceTree = "<group>"; };
+		E3890B56177468C800292365 /* UAFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFTextField.m; sourceTree = "<group>"; };
+		E3890B59177472ED00292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+UAFAdditions_RegularLayout.h"; sourceTree = "<group>"; };
+		E3890B5A177472EE00292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m"; sourceTree = "<group>"; };
 		E3EFAA1717726D4A00C8B397 /* UAFDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAFDrawingUtilities.h; path = Code/Utility/UAFDrawingUtilities.h; sourceTree = SOURCE_ROOT; };
 		E3EFAA1817726D4A00C8B397 /* UAFDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAFDrawingUtilities.m; path = Code/Utility/UAFDrawingUtilities.m; sourceTree = SOURCE_ROOT; };
 		E3EFAA1C177270FD00C8B397 /* NSArray+UAFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UAFAdditions.h"; sourceTree = "<group>"; };
@@ -127,23 +180,18 @@
 		E3EFAA461772754B00C8B397 /* UIView+UAFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UAFAdditions.m"; sourceTree = "<group>"; };
 		E3EFAA471772754B00C8B397 /* UIViewController+UAFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UAFAdditions.h"; sourceTree = "<group>"; };
 		E3EFAA481772754B00C8B397 /* UIViewController+UAFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UAFAdditions.m"; sourceTree = "<group>"; };
-		E3EFAA53177281F700C8B397 /* AVPlayerItem+UAFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVPlayerItem+UAFAdditions.h"; sourceTree = "<group>"; };
-		E3EFAA54177281F700C8B397 /* AVPlayerItem+UAFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerItem+UAFAdditions.m"; sourceTree = "<group>"; };
-		E3EFAA561772820D00C8B397 /* AVFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFoundation.h; sourceTree = "<group>"; };
 		E3EFAA5717728B0700C8B397 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E3EFAA5917728B2200C8B397 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3EFAA5B1772917900C8B397 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E3EFAA611772E0F300C8B397 /* UAFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFNavigationController.h; sourceTree = "<group>"; };
 		E3EFAA621772E0F300C8B397 /* UAFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFNavigationController.m; sourceTree = "<group>"; };
 		E3EFAA641772E4B900C8B397 /* Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navigation.h; sourceTree = "<group>"; };
-		E3EFAA651772E62700C8B397 /* UAFInertialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFInertialViewController.h; sourceTree = "<group>"; };
 		E3EFAA671772E72700C8B397 /* UAFNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFNavigationItem.h; sourceTree = "<group>"; };
 		E3EFAA681772E80A00C8B397 /* UAFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFViewController.h; sourceTree = "<group>"; };
 		E3EFAA691772E80A00C8B397 /* UAFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFViewController.m; sourceTree = "<group>"; };
 		E3EFAA6B1772E93900C8B397 /* Boilerplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boilerplate.h; sourceTree = "<group>"; };
 		E3EFAA6C1772EA0D00C8B397 /* UAFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFView.h; sourceTree = "<group>"; };
 		E3EFAA6D1772EA0D00C8B397 /* UAFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFView.m; sourceTree = "<group>"; };
-		E3EFAA6F1772EACF00C8B397 /* UAFViewState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAFViewState.h; sourceTree = "<group>"; };
 		E3EFAA701772ED9F00C8B397 /* UAFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFScrollView.h; sourceTree = "<group>"; };
 		E3EFAA711772EDA000C8B397 /* UAFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAFScrollView.m; sourceTree = "<group>"; };
 		E3EFAA731772F08800C8B397 /* UAFCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAFCollectionReusableView.h; sourceTree = "<group>"; };
@@ -171,10 +219,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3890B3F17745B4300292365 /* libcommonCrypto.dylib in Frameworks */,
+				E3890B3D177456BC00292365 /* QuartzCore.framework in Frameworks */,
+				E3890B381774530400292365 /* CoreData.framework in Frameworks */,
+				E3890B361774527700292365 /* StoreKit.framework in Frameworks */,
+				E3890B2B177446D800292365 /* AudioToolbox.framework in Frameworks */,
 				E3EFAA5C1772917900C8B397 /* CoreMedia.framework in Frameworks */,
 				E3EFAA5A17728B2300C8B397 /* UIKit.framework in Frameworks */,
 				E3EFAA5817728B0800C8B397 /* AVFoundation.framework in Frameworks */,
 				E3553F9017725CF800762627 /* Foundation.framework in Frameworks */,
+				7FF5D1B0EBD741D49F9F07AF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +245,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3370F2E17747381008A8773 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E3370F30177473DC008A8773 /* UAFCollectionViewLayoutAttributes.h */,
+				E3890B59177472ED00292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.h */,
+				E3890B5A177472EE00292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
 		E3553F8317725CF800762627 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +263,7 @@
 				E3553FA617725CF800762627 /* Tests */,
 				E3553F8E17725CF800762627 /* Frameworks */,
 				E3553F8D17725CF800762627 /* Products */,
+				D8C1EE9F76EC4AAF8A391A0A /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,10 +279,16 @@
 		E3553F8E17725CF800762627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E5BDBEF74AE4F339F55A4A0 /* libPods.a */,
+				E3890B3E17745B4100292365 /* libcommonCrypto.dylib */,
+				E3890B2A177446D700292365 /* AudioToolbox.framework */,
 				E3EFAA5717728B0700C8B397 /* AVFoundation.framework */,
+				E3890B371774530400292365 /* CoreData.framework */,
 				E3EFAA5B1772917900C8B397 /* CoreMedia.framework */,
 				E3553F8F17725CF800762627 /* Foundation.framework */,
+				E3890B3C177456BC00292365 /* QuartzCore.framework */,
 				E3553F9E17725CF800762627 /* SenTestingKit.framework */,
+				E3890B351774527700292365 /* StoreKit.framework */,
 				E3EFAA5917728B2200C8B397 /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -227,13 +298,16 @@
 			isa = PBXGroup;
 			children = (
 				E3553FC01772644100762627 /* UAFToolkit.h */,
-				E3553FB8177260B100762627 /* Utility */,
-				E3EFAA1B177270FD00C8B397 /* Foundation */,
-				E3EFAA351772754A00C8B397 /* UIKit */,
-				E3EFAA52177281F500C8B397 /* AVFoundation */,
 				E3EFAA5E1772E0EB00C8B397 /* Boilerplate */,
+				E3EFAA1B177270FD00C8B397 /* Foundation */,
 				E3EFAA5F1772E0ED00C8B397 /* Keyboard */,
 				E3EFAA601772E0F000C8B397 /* Navigation */,
+				E3890B1717743B6700292365 /* SFX */,
+				E3890B26177444CC00292365 /* Storage */,
+				E3890B24177444CA00292365 /* StoreKit */,
+				E3EFAA351772754A00C8B397 /* UIKit */,
+				E3890B431774628700292365 /* UI */,
+				E3553FB8177260B100762627 /* Utility */,
 			);
 			path = UAFToolkit;
 			sourceTree = "<group>";
@@ -281,6 +355,90 @@
 			name = PLists;
 			sourceTree = "<group>";
 		};
+		E3890B1717743B6700292365 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B1A17743B6700292365 /* SFX.h */,
+				E3890B1817743B6700292365 /* AVPlayerItem+UAFAdditions.h */,
+				E3890B1917743B6700292365 /* AVPlayerItem+UAFAdditions.m */,
+				E3890B1B17743B6700292365 /* UAFUISoundController.h */,
+				E3890B1C17743B6700292365 /* UAFUISoundController.m */,
+				E3890B1D17743B6700292365 /* UIView+UAFAdditions_SFX.h */,
+				E3890B1E17743B6700292365 /* UIView+UAFAdditions_SFX.m */,
+			);
+			name = SFX;
+			path = Code/SFX;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3890B24177444CA00292365 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B25177444CC00292365 /* StoreKit.h */,
+				E3890B341774523A00292365 /* UAFPurchaseableDataObject.h */,
+			);
+			name = StoreKit;
+			path = Code/StoreKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3890B26177444CC00292365 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B27177444CD00292365 /* Storage.h */,
+				E3890B2C1774471D00292365 /* UAFLocalStorage.h */,
+				E3890B3117744CD000292365 /* UAFVideoResourceManager.h */,
+				E3890B3217744CD000292365 /* UAFVideoResourceManager.m */,
+			);
+			name = Storage;
+			path = Code/Storage;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3890B431774628700292365 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B4B1774628F00292365 /* UI.h */,
+				E3890B4C1774628F00292365 /* UI_Components.h */,
+				E3890B4D1774628F00292365 /* UI_Effects.h */,
+				E3890B461774628F00292365 /* UAFInertialViewController.h */,
+				E3890B4A1774628F00292365 /* UAFViewOptions.h */,
+				E3890B50177462BD00292365 /* Components */,
+				E3890B54177462DF00292365 /* Effects */,
+			);
+			name = UI;
+			path = Code/UI;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3890B50177462BD00292365 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B441774628F00292365 /* UAFActivityIndicatorDotsView.h */,
+				E3890B451774628F00292365 /* UAFActivityIndicatorDotsView.m */,
+				E3890B471774628F00292365 /* UAFToastView.h */,
+				E3890B481774628F00292365 /* UAFToastView.m */,
+				E3890B55177468C800292365 /* UAFTextField.h */,
+				E3890B56177468C800292365 /* UAFTextField.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		E3890B54177462DF00292365 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				E3890B491774628F00292365 /* UAFViewDynamics.h */,
+				E3890B51177462D400292365 /* UIView+UAFAdditions_Effects.h */,
+				E3890B52177462D500292365 /* UIView+UAFAdditions_Effects.m */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		E3890B581774721D00292365 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				E3EFAA3F1772754B00C8B397 /* UIPanGestureRecognizer+UAFAdditions.h */,
+				E3EFAA401772754B00C8B397 /* UIPanGestureRecognizer+UAFAdditions.m */,
+			);
+			name = Gestures;
+			sourceTree = "<group>";
+		};
 		E3EFAA1B177270FD00C8B397 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +468,8 @@
 			isa = PBXGroup;
 			children = (
 				E3EFAA3E1772754B00C8B397 /* UIKit.h */,
+				E3890B0E17741B5700292365 /* UIKit_Gestures.h */,
+				E3370F2F177473B2008A8773 /* UIKit_Layouts.h */,
 				E3EFAA361772754B00C8B397 /* UIApplication+UAFAdditions.h */,
 				E3EFAA371772754B00C8B397 /* UIApplication+UAFAdditions.m */,
 				E3EFAA381772754B00C8B397 /* UIColor+UAFAdditions.h */,
@@ -318,8 +478,6 @@
 				E3EFAA3B1772754B00C8B397 /* UIControl+UAFAdditions.m */,
 				E3EFAA3C1772754B00C8B397 /* UIImage+UAFAdditions.h */,
 				E3EFAA3D1772754B00C8B397 /* UIImage+UAFAdditions.m */,
-				E3EFAA3F1772754B00C8B397 /* UIPanGestureRecognizer+UAFAdditions.h */,
-				E3EFAA401772754B00C8B397 /* UIPanGestureRecognizer+UAFAdditions.m */,
 				E3EFAA411772754B00C8B397 /* UIScreen+UAFAdditions.h */,
 				E3EFAA421772754B00C8B397 /* UIScreen+UAFAdditions.m */,
 				E3EFAA431772754B00C8B397 /* UIScrollView+UAFAdditions.h */,
@@ -328,22 +486,11 @@
 				E3EFAA461772754B00C8B397 /* UIView+UAFAdditions.m */,
 				E3EFAA471772754B00C8B397 /* UIViewController+UAFAdditions.h */,
 				E3EFAA481772754B00C8B397 /* UIViewController+UAFAdditions.m */,
-				E3EFAA651772E62700C8B397 /* UAFInertialViewController.h */,
-				E3EFAA6F1772EACF00C8B397 /* UAFViewState.h */,
+				E3890B581774721D00292365 /* Gestures */,
+				E3370F2E17747381008A8773 /* Layouts */,
 			);
 			name = UIKit;
 			path = Code/UIKit;
-			sourceTree = SOURCE_ROOT;
-		};
-		E3EFAA52177281F500C8B397 /* AVFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				E3EFAA561772820D00C8B397 /* AVFoundation.h */,
-				E3EFAA53177281F700C8B397 /* AVPlayerItem+UAFAdditions.h */,
-				E3EFAA54177281F700C8B397 /* AVPlayerItem+UAFAdditions.m */,
-			);
-			name = AVFoundation;
-			path = Code/AVFoundation;
 			sourceTree = SOURCE_ROOT;
 		};
 		E3EFAA5E1772E0EB00C8B397 /* Boilerplate */ = {
@@ -406,11 +553,11 @@
 		E3EFAA891772F7DF00C8B397 /* Resizing */ = {
 			isa = PBXGroup;
 			children = (
+				E3EFAA8A1772F83800C8B397 /* UAFKeyboardResizing.h */,
 				E3EFAA811772F70800C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.h */,
 				E3EFAA821772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m */,
 				E3EFAA841772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.h */,
 				E3EFAA851772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m */,
-				E3EFAA8A1772F83800C8B397 /* UAFKeyboardResizing.h */,
 			);
 			name = Resizing;
 			sourceTree = "<group>";
@@ -422,10 +569,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3553FB117725CF800762627 /* Build configuration list for PBXNativeTarget "UAFToolkit" */;
 			buildPhases = (
+				DB0111C5B6894512971F2A34 /* Check Pods Manifest.lock */,
 				E3553F8817725CF800762627 /* Sources */,
 				E3553F8917725CF800762627 /* Frameworks */,
 				E3553F8A17725CF800762627 /* CopyFiles */,
 				E3EFAA1A1772701500C8B397 /* ShellScript */,
+				4D3746B93F18425789BCDC09 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -495,6 +644,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D3746B93F18425789BCDC09 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		DB0111C5B6894512971F2A34 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 		E3553F9B17725CF800762627 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,7 +725,6 @@
 				E3EFAA4F1772754B00C8B397 /* UIScrollView+UAFAdditions.m in Sources */,
 				E3EFAA501772754B00C8B397 /* UIView+UAFAdditions.m in Sources */,
 				E3EFAA511772754B00C8B397 /* UIViewController+UAFAdditions.m in Sources */,
-				E3EFAA55177281F700C8B397 /* AVPlayerItem+UAFAdditions.m in Sources */,
 				E3EFAA631772E0F300C8B397 /* UAFNavigationController.m in Sources */,
 				E3EFAA6A1772E80A00C8B397 /* UAFViewController.m in Sources */,
 				E3EFAA6E1772EA0D00C8B397 /* UAFView.m in Sources */,
@@ -560,6 +736,15 @@
 				E3EFAA831772F70900C8B397 /* UIScrollView+UAFAdditions_KeyboardResizing.m in Sources */,
 				E3EFAA861772F73200C8B397 /* UIViewController+UAFAdditions_KeyboardResizing.m in Sources */,
 				E3EFAA8D1772FCCA00C8B397 /* UIViewController+UAFAdditions_Navigation.m in Sources */,
+				E3890B1F17743B6700292365 /* AVPlayerItem+UAFAdditions.m in Sources */,
+				E3890B2017743B6700292365 /* UAFUISoundController.m in Sources */,
+				E3890B2117743B6700292365 /* UIView+UAFAdditions_SFX.m in Sources */,
+				E3890B3317744CD000292365 /* UAFVideoResourceManager.m in Sources */,
+				E3890B4E1774628F00292365 /* UAFActivityIndicatorDotsView.m in Sources */,
+				E3890B4F1774628F00292365 /* UAFToastView.m in Sources */,
+				E3890B53177462D500292365 /* UIView+UAFAdditions_Effects.m in Sources */,
+				E3890B57177468C800292365 /* UAFTextField.m in Sources */,
+				E3890B5B177472F100292365 /* UICollectionViewFlowLayout+UAFAdditions_RegularLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,10 +833,15 @@
 		};
 		E3553FB217725CF800762627 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8C1EE9F76EC4AAF8A391A0A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/UAFToolkit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/UAFToolkit-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -660,10 +850,15 @@
 		};
 		E3553FB317725CF800762627 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8C1EE9F76EC4AAF8A391A0A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/UAFToolkit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/UAFToolkit-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

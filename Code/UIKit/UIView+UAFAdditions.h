@@ -3,12 +3,15 @@
 //  UAFToolkit
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2012 UseAllFive. See license.
+//  Copyright (c) 2012-2013UseAllFive. See license.
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-extern NSTimeInterval kUAFFadeDuration;
+#import "UIScreen+UAFAdditions.h"
+
+#define kUAFFadeDuration 0.2f //-- Pre-defining to avoid re-defining issue.
 
 /**
  Provides extensions to `UIView` for various common tasks.

@@ -3,8 +3,12 @@
 //  UAFToolkit
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2012 UseAllFive. See license.
+//  Copyright (c) 2012-2013UseAllFive. See license.
 //
+
+#import "NSBundle+UAFAdditions.h"
+#include <time.h>
+#include <xlocale.h>
 
 /**
  Provides extensions to `NSDate` for various common tasks.

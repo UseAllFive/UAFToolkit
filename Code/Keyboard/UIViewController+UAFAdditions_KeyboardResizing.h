@@ -11,6 +11,8 @@
 #import "UAFKeyboardResizing.h"
 #import "UIScrollView+UAFAdditions_KeyboardResizing.h"
 
+#import "UAFDebugUtilities.h"
+
 @interface UIViewController (UAFAdditions_KeyboardResizing)
 
 /**

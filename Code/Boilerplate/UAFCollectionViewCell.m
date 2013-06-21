@@ -10,9 +10,7 @@
 
 @implementation UAFCollectionViewCell
 
-#ifdef UAF_VIEW_STATE
 @synthesize viewState;
-#endif
 
 - (id)initWithFrame:(CGRect)frame
 {

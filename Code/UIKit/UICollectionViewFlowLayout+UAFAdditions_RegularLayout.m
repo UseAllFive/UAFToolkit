@@ -24,9 +24,18 @@
   }
   Class attributesClass = [attributes class];
   attributes.numberOfColumns = [attributesClass numberOfColumnsWhenIsLandscape:isLandscape];
-  CGFloat itemSize = floorf((screenSize.width - (attributes.numberOfColumns + 1) * attributes.gutter) /
-                            attributes.numberOfColumns);
-  attributes.itemSize = CGSizeMake(itemSize, itemSize);
+  BOOL shouldSizeByGutter = (![attributesClass resolveClassMethod:@selector(itemSizeWhenIsLandscape:)]
+                             && attributes.gutter > 0);
+  if (shouldSizeByGutter) {
+    CGFloat itemSize = floorf((screenSize.width - (attributes.numberOfColumns + 1) * attributes.gutter) /
+                              attributes.numberOfColumns);
+    attributes.itemSize = CGSizeMake(itemSize, itemSize);
+  } else {
+    attributes.itemSize = [attributesClass itemSizeWhenIsLandscape:isLandscape];
+    attributes.gutter = floorf((screenSize.width - attributes.numberOfColumns * attributes.itemSize.width) /
+                               (attributes.numberOfColumns + 1));
+    SLog(@"Gutter: %f", attributes.gutter);
+  }
 }
 
 @end

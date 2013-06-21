@@ -25,13 +25,16 @@
  Given attributes should be:
  
  - <[UAFCollectionViewLayoutAttributes numberOfColumnsWhenIsLandscape:]>.
+ - If possible, <[UAFCollectionViewLayoutAttributes itemSizeWhenIsLandscape:]>.
  
  Derived attributes can then be simply piped out of the attributes'
  <UICollectionViewDelegateFlowLayout> methods.
  @param attributes <UAFCollectionViewLayoutAttributes> implementation.
  @param orientation A device orientation.
- @note Layout will be calculated based on the gutters as 'struts' and the
- item-sizes as 'springs'.
+ @note If <[UAFCollectionViewLayoutAttributes itemSizeWhenIsLandscape:]> isn't
+ implemented and <[UAFCollectionViewLayoutAttributes gutter]> is a positive
+ value, layout will be calculated based on the gutters as 'struts' and the
+ item-sizes as 'springs'. The default is vice versa.
  */
 + (void)calculateLayoutAttributes:(id<UAFCollectionViewLayoutAttributes>)attributes
                    forOrientation:(UIInterfaceOrientation)orientation;

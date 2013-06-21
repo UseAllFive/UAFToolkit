@@ -9,32 +9,40 @@
 #import "UIScreen+UAFAdditions.h"
 
 #import "UIView+UAFAdditions.h"
+#import "UAFDrawingUtilities.h"
 
 @implementation UIScreen (UAFAdditions)
 
 #pragma mark - Accessing the Bounds
 
 - (CGRect)currentBounds {
-	return [self boundsForOrientation:[self currentOrientation]];
+	return [self currentBounds:YES];
+}
+
+- (CGRect)currentBounds:(BOOL)fullScreen {
+  return [self boundsForOrientation:self.currentOrientation fullScreen:fullScreen];
 }
 
 - (UIInterfaceOrientation)currentOrientation {
   return [[UIApplication sharedApplication] statusBarOrientation];
 }
 
-- (BOOL)isLandscape {
-  return UIInterfaceOrientationIsLandscape([self currentOrientation]);
-}
-
 - (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation {
+  return [self boundsForOrientation:orientation fullScreen:YES];
+}
+- (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation fullScreen:(BOOL)fullScreen {
 	CGRect bounds = [self bounds];
-  
-	if (UIInterfaceOrientationIsLandscape(orientation)) {
-		CGFloat buffer = bounds.size.width;
-    
-		bounds.size.width = bounds.size.height;
-		bounds.size.height = buffer;
+  BOOL isLandscape = UIInterfaceOrientationIsLandscape(orientation);
+	if (isLandscape) {
+		bounds = [UIView flipRect:bounds];
 	}
+  if (!fullScreen) {
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    if (isLandscape) {
+      statusBarFrame = [UIView flipRect:statusBarFrame];
+    }
+    bounds = CGRectSetHeight(bounds, bounds.size.height - statusBarFrame.size.height);
+  }
 	return bounds;
 }
 

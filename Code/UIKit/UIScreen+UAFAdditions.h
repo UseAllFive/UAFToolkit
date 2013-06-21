@@ -23,16 +23,12 @@
  @see boundsForOrientation:
  */
 - (CGRect)currentBounds;
+- (CGRect)currentBounds:(BOOL)fullScreen;
 /**
  Current device orientation.
  @return The interface orientation.
  */
 - (UIInterfaceOrientation)currentOrientation;
-/**
- Shorthand for `UIInterfaceOrientationIsLandscape([self currentOrientation]);`
- @return If device orientation is landscape.
- */
-- (BOOL)isLandscape;
 /**
  Returns the bounds of the screen for a given device orientation. `UIScreen`'s `bounds` method always returns the bounds
  of the screen of it in the portrait orientation.
@@ -41,6 +37,7 @@
  @see currentBounds
  */
 - (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation;
+- (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation fullScreen:(BOOL)fullScreen;
 /**
  Abstracts away the procedure of getting the bounds of the system keyboard-view.
  @param notification Keyboard notification.

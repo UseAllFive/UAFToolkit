@@ -66,9 +66,13 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 
 //-- Called when the navigation controller shows a new top view controller via a push, pop or setting of the view controller stack.
 - (void)customNavigationController:(id<UAFNavigationController>)navigationController
-            willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+             willAddViewController:(UIViewController *)viewController;
 - (void)customNavigationController:(id<UAFNavigationController>)navigationController
-             didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+           removeAddViewController:(UIViewController *)viewController;
+- (void)customNavigationController:(id<UAFNavigationController>)navigationController
+            willShowViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
+- (void)customNavigationController:(id<UAFNavigationController>)navigationController
+             didShowViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
 
 @end
 

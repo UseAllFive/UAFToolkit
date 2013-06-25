@@ -10,7 +10,7 @@
 
 #import "UAFNavigationController.h"
 
-@protocol UAFNavigationItem <NSObject>
+@protocol UAFNavigationItem <UAFNavigationControllerDelegate>
 
 @optional
 

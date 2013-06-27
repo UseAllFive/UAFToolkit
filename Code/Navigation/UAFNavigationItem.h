@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) id<UAFNavigationController> customNavigationController;
 
+- (BOOL)shouldNavigateToViewController:(UIViewController *)viewController;
+
 /**
  Hook for when a presented modal view-controller dismisses itself while sending
  state.

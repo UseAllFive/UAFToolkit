@@ -41,6 +41,8 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 
 @property (strong, nonatomic, readonly) UIViewController *topViewController;
 @property (strong, nonatomic, readonly) UIViewController *visibleViewController;
+@property (strong, nonatomic, readonly) UIViewController *previousViewController;
+@property (strong, nonatomic, readonly) UIViewController *nextViewController;
 @property (strong, nonatomic, readonly) NSArray *viewControllers;
 
 @property (weak, nonatomic) id<UAFPagingNavigationControllerDelegate> pagingDelegate;
@@ -53,6 +55,10 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 - (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier animated:(BOOL)animated focused:(BOOL)focused;
 
 - (BOOL)popViewControllerAnimated:(BOOL)animated focused:(BOOL)focused;
+
+- (BOOL)pushViewController:(id)viewController animated:(BOOL)animated completion:(void(^)(void))completion;
+- (BOOL)popToViewController:(id)viewController animated:(BOOL)animated completion:(void(^)(void))completion;
+- (BOOL)popViewControllerAnimated:(BOOL)animated completion:(void(^)(void))completion;
 
 - (BOOL)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated focused:(BOOL)focused;
 

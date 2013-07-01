@@ -27,10 +27,7 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 @property (weak, nonatomic) id<UAFNavigationControllerDelegate> delegate;
 
 @property (nonatomic) UAFNavigationDirection baseNavigationDirection;
-@property (nonatomic) UAFNavigationDirection onceNavigationDirection;
-
 @property (nonatomic) NSTimeInterval baseNavigationDuration;
-@property (nonatomic) NSTimeInterval onceNavigationDuration;
 
 - (BOOL)pushViewController:(UIViewController *)viewController animated:(BOOL)animated;
 - (BOOL)popViewControllerAnimated:(BOOL)animated;
@@ -38,6 +35,9 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 - (BOOL)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated;
 
 @optional
+
+@property (nonatomic) UAFNavigationDirection onceNavigationDirection;
+@property (nonatomic) NSTimeInterval onceNavigationDuration;
 
 @property (strong, nonatomic, readonly) UIViewController *topViewController;
 @property (strong, nonatomic, readonly) UIViewController *visibleViewController;
@@ -47,6 +47,8 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 
 @property (weak, nonatomic) id<UAFPagingNavigationControllerDelegate> pagingDelegate;
 @property (nonatomic) BOOL pagingEnabled;
+
+@property (nonatomic) BOOL shouldUpdatePresentationFlags;
 
 - (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier animated:(BOOL)animated;
 - (BOOL)popToViewControllerWithIdentifier:(NSString *)identifier animated:(BOOL)animated;
@@ -79,6 +81,13 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
             willShowViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
 - (void)customNavigationController:(id<UAFNavigationController>)navigationController
              didShowViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
+- (void)customNavigationController:(id<UAFNavigationController>)navigationController
+            willHideViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
+- (void)customNavigationController:(id<UAFNavigationController>)navigationController
+             didHideViewController:(UIViewController *)viewController animated:(BOOL)animated dismissed:(BOOL)dismissed;
+
+- (BOOL)customNavigationController:(id<UAFNavigationController>)navigationController
+    shouldNavigateToViewController:(UIViewController *)viewController;
 
 @end
 

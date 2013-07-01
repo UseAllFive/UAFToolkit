@@ -10,7 +10,9 @@
 
 @implementation UAFCollectionViewController
 
-@synthesize previousNavigationItemIdentifier, nextNavigationItemIdentifier, customNavigationController;
+@synthesize previousNavigationItemIdentifier, nextNavigationItemIdentifier;
+@synthesize customNavigationController;
+@synthesize customIsBeingPresented, customIsBeingDismissed;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -98,4 +98,8 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 - (UIViewController *)customNavigationController:(id<UAFNavigationController>)navigationController
                viewControllerAfterViewController:(UIViewController *)viewController;
 
+@optional
+
+- (BOOL)customNavigationControllerShouldNotifyOfPossibleViewAppearanceChange:(id<UAFNavigationController>)navigationController;
+
 @end

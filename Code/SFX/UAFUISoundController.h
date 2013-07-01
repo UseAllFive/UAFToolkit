@@ -31,6 +31,8 @@ extern NSString *const kUAFDidPlayUISoundNotification;
  playing such a name will play a random selection from the list.
  */
 @interface UAFUISoundController : NSObject
+
+<UAFObject>
 /**
  If system-sound approach should be used.
  */

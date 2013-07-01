@@ -115,7 +115,8 @@
 - (void)toggleToAnimating:(BOOL)animating
 {
   if (animating == self.isAnimating) {
-    return DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
+    return nil;
   }
   self.isAnimating = animating;
   if (animating) {

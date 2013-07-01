@@ -45,8 +45,10 @@ static NSDictionary *defaultOptions;
 
 - (void)_commonInit
 {
+  self.shouldDebug = YES;
   if (self.didCommonInit) {
-    return DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
+    return nil;
   }
   self.didCommonInit = YES;
   BOOL isPhone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
@@ -99,7 +101,8 @@ static NSDictionary *defaultOptions;
   id previousValue = change[NSKeyValueChangeOldKey];
   id value = change[NSKeyValueChangeNewKey];
   if (context != observationContext || [previousValue isEqual:value]) {
-    return DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
+    return nil;
   }
   if (object == self) {
     if ([keyPath isEqualToString:@"titleText"]
@@ -139,7 +142,7 @@ static NSDictionary *defaultOptions;
   if ((!self.titleText || !self.titleText.length)
       || visible == !self.isHidden
       ) {
-    DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
     return NO;
   }
   //-- Step 2 / 3.

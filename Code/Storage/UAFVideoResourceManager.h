@@ -9,6 +9,7 @@
 #import <RestKit/Network/RKHTTPRequestOperation.h>
 
 #import "UAFLocalStorage.h"
+#import "UAFObject.h"
 
 #import "UAFDebugUtilities.h"
 
@@ -40,7 +41,7 @@
  */
 @interface UAFVideoResourceManager : NSObject
 
-<UAFLocalStorage>
+<UAFLocalStorage, UAFObject>
 
 /**
  Wraps <[UAFLocalStorage operationToDownloadFileAsNeededForDataObject:atURL:toURL:]>.

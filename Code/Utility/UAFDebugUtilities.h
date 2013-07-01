@@ -7,12 +7,13 @@
 //
 //  http://stackoverflow.com/q/969130
 
+//-- Turning off debug-logging means fn-call-logging gets turned on.
 #ifndef DEBUG_LOG
 #   define DEBUG_LOG 1
 #endif
 
 //-- AlwaysLog
-#define ALog(fmt, ...) NSLog((@"\n\n%s [Line %d]\n" fmt @"\n\n"), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define ALog(fmt, ...) NSLog((@" %s [Line %d]\n" fmt @"\n\n"), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
 //-- DebugLog
 #if defined(DEBUG) || defined(UAF_FORCE_DEBUG)
@@ -25,6 +26,9 @@
 #   if !DEBUG_LOG
 #     undef DLog
 #     define DLog(...)
+#     define FLog() NSLog((@"%s\n"), __PRETTY_FUNCTION__);
+#   else
+#     define FLog()
 #   endif
 #else
 #   define DLog(...)
@@ -32,6 +36,7 @@
 #   define SLog(...)
 #   define MLog(...)
 #   define ULog(...)
+#   define FLog()
 #endif
 
 //-- Set options as needed and use respective log macros.

@@ -88,12 +88,15 @@ static UAFUISoundController *controller;
 
 @implementation UAFUISoundController
 
+@synthesize shouldDebug;
+
 - (id)init
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
     keyPathsToObserve = @[ @"fileNames" ];
   });
+  self.shouldDebug = YES;
   self = [super init];
   if (self) {
     if (!self.shouldPlayAsSystemSounds) {
@@ -131,7 +134,7 @@ static UAFUISoundController *controller;
   if ([object isKindOfClass:[AVPlayerItem class]] && context == observationContext) {
     if ([keyPath isEqualToString:@"status"]) {
       if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
-        return DLog(@"GUARDED");
+        return nil;
       }
       if (self.loadCompletion) {
         dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
@@ -169,7 +172,7 @@ static UAFUISoundController *controller;
 {
   id soundFileObject = [self soundFileObjectForFileName:name];
   if (!soundFileObject && self.isPlaying) {
-    DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
     return NO;
   }
   self.currentSoundFileName = name;
@@ -208,7 +211,7 @@ static UAFUISoundController *controller;
 
 - (void)didPlaySound
 {
-  //DLog(@"PLAYING SOUND: %@", self.currentSoundFileName);
+  if (self.shouldDebug) DLog(@"Playing: %@", self.currentSoundFileName);
 #if RUN_KIF_TESTS
   [[NSNotificationCenter defaultCenter] postNotificationName:kUAFDidPlayUISoundNotification object:self];
 #endif
@@ -233,7 +236,7 @@ static UAFUISoundController *controller;
     soundFileObject = [self.class newSystemSoundFileObjectForFileName:fileName];
   } else {
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-    //DLog(@"%@", path);
+    if (self.shouldDebug) DLog(@"File path: %@", path);
     AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:path]];
     [item setVolume:self.volumeFactor];
     [item addObserver:self

@@ -10,9 +10,13 @@
 
 @implementation UAFCollectionViewController
 
+//-- UAFNavigationItem
 @synthesize previousNavigationItemIdentifier, nextNavigationItemIdentifier;
 @synthesize customNavigationController;
 @synthesize customIsBeingPresented, customIsBeingDismissed;
+
+//-- UAFObject
+@synthesize shouldDebug;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

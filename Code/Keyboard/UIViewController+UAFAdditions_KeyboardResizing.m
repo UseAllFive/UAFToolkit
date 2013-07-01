@@ -13,7 +13,6 @@
 - (BOOL)setupResizingWithKeyboardForView:(UIScrollView *)view
 {
   if (![self conformsToProtocol:@protocol(UAFKeyboardResizing)]) {
-    DLog(@"GUARDED");
     return NO;
   }
   UIViewController<UAFKeyboardResizing> *controller = (UIViewController<UAFKeyboardResizing> *)self;
@@ -25,7 +24,6 @@
     [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
   }
   if ([controller.keyboardResizingViews indexOfObject:view] != NSNotFound) {
-    DLog(@"GUARDED");
     return NO;
   }
   //-- Update setup.
@@ -36,12 +34,10 @@
 - (BOOL)teardownResizingWithKeyboardForView:(UIScrollView *)view
 {
   if (![self conformsToProtocol:@protocol(UAFKeyboardResizing)]) {
-    DLog(@"GUARDED");
     return NO;
   }
   UIViewController<UAFKeyboardResizing> *controller = (UIViewController<UAFKeyboardResizing> *)self;
   if (!controller.keyboardResizingViews) {
-    DLog(@"GUARDED");
     return NO;
   }
   if (controller.keyboardResizingViews.count == 0) {

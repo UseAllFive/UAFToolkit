@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "UAFViewOptions.h"
+#import "UAFObject.h"
 
 typedef NS_ENUM(NSUInteger, UAFPopDirection) {
   UAFPopDirectionIn,
@@ -27,7 +28,7 @@ typedef NS_OPTIONS(NSUInteger, UAFPopOption) {
  Lower-level basis for <UAFToggledView>. This is more of a formal than a
  functional separation.
  */
-@protocol UAFAnimatedView <NSObject>
+@protocol UAFAnimatedView <UAFObject>
 
 @optional
 

@@ -12,6 +12,9 @@
 
 @synthesize viewState;
 
+//-- UAFObject
+@synthesize shouldDebug;
+
 - (id)initWithFrame:(CGRect)frame
 {
   self = [super initWithFrame:frame];

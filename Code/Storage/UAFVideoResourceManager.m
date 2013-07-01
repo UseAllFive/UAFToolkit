@@ -15,6 +15,9 @@ static UAFVideoResourceManager *manager;
 //-- UAFLocalStorage
 @synthesize diskStoragePath, remotelyMirroredFiles, backgroundQueue;
 
+//-- UAFObject
+@synthesize shouldDebug;
+
 - (id)init
 {
   self = [super init];
@@ -53,14 +56,14 @@ static UAFVideoResourceManager *manager;
   };
   if (!object.needsUpdate) {
     registerFile();
-    DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
     return nil;
   }
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:sourceURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
   RKHTTPRequestOperation *operation = [[RKHTTPRequestOperation alloc] initWithRequest:request];
   operation.outputStream = [NSOutputStream outputStreamWithURL:destinationURL append:NO];
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-    DLog(@"DOWNLOADED");
+    if (self.shouldDebug) DLog(@"Downloaded.");
     registerFile();
     [object setValue:object.dateUpdated.copy forKey:@"previousDateUpdated"];
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -77,7 +80,8 @@ static UAFVideoResourceManager *manager;
   }
   NSArray *classFiles = self.remotelyMirroredFiles[path];
   if (!classFiles) {
-    return DLog(@"GUARDED");
+    if (self.shouldDebug) DLog(@"Guarded.");
+    return nil;
   }
   NSFileManager *fs = [NSFileManager defaultManager];
   NSString *fullPath = [self.diskStoragePath stringByAppendingPathComponent:path];
@@ -92,7 +96,7 @@ static UAFVideoResourceManager *manager;
       if ([classFiles indexOfObject:fileURL] == NSNotFound) {
         BOOL didRemove = [fs removeItemAtPath:filePath error:&error];
         if (didRemove) {
-          DLog(@"DELETED FILE: %@", fileURL);
+          if (self.shouldDebug) DLog(@"Deleted file: %@", fileURL);
         } else {
           ALog(@"Failed to delete file: %@", error);
         }

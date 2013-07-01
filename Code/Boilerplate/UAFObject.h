@@ -8,13 +8,15 @@
 
 @protocol UAFObject <NSObject>
 
+@property (nonatomic) BOOL shouldDebug;
+
+@optional
+
 /**
  Useful for when multiple constructors need to share common initialization
  logic. Default implementation does nothing.
  */
 - (void)_commonInit;
-
-@optional
 
 /**
  Useful for when multiple constructors for views using nibs need to share common

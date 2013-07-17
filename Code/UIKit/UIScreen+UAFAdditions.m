@@ -64,4 +64,14 @@
 	return answer;
 }
 
+- (BOOL)isWideDisplay {
+  static dispatch_once_t predicate;
+  static BOOL answer;
+  
+  dispatch_once(&predicate, ^{
+    answer = (self.bounds.size.height == 568.0f);
+  });
+  return answer;
+}
+
 @end

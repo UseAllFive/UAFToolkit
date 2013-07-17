@@ -58,5 +58,10 @@
  @return A Boolean indicating if the screen is a Retina display.
  */
 - (BOOL)isRetinaDisplay;
+/**
+ Returns a Boolean indicating if the screen is a widescreen display.
+ @return A Boolean indicating if the screen is a widescreen display.
+ */
+- (BOOL)isWideDisplay;
 
 @end

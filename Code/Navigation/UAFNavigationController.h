@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 
 @optional
 
+//-- TODO: Eventually: Bad idea. Should be removed (with refactoring).
 @property (nonatomic) UAFNavigationDirection onceNavigationDirection;
 @property (nonatomic) NSTimeInterval onceNavigationDuration;
 

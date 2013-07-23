@@ -90,6 +90,8 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 - (BOOL)customNavigationController:(id<UAFNavigationController>)navigationController
     shouldNavigateToViewController:(UIViewController *)viewController;
 
+- (NSArray *)customNavigationControllerSubviewsToSupportInteractiveNavigation:(id<UAFNavigationController>)navigationController;
+
 @end
 
 @protocol UAFPagingNavigationControllerDelegate <NSObject>

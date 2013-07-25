@@ -289,7 +289,9 @@ static UAFUISoundController *controller;
                           NULL);
   SystemSoundID soundFileObject;
   AudioServicesCreateSystemSoundID(soundFileURLRef, &soundFileObject);
-  return (id)@( soundFileObject );
+  id obj = (id)@( soundFileObject );
+  CFRelease(soundFileURLRef);
+  return obj;
 }
 
 @end

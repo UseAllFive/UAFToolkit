@@ -40,11 +40,11 @@ typedef NS_ENUM(NSUInteger, UAFNavigationDirection) {
 @property (nonatomic) UAFNavigationDirection onceNavigationDirection;
 @property (nonatomic) NSTimeInterval onceNavigationDuration;
 
-@property (strong, nonatomic, readonly) UIViewController *topViewController;
-@property (strong, nonatomic, readonly) UIViewController *visibleViewController;
-@property (strong, nonatomic, readonly) UIViewController *previousViewController;
-@property (strong, nonatomic, readonly) UIViewController *nextViewController;
-@property (strong, nonatomic, readonly) NSArray *viewControllers;
+@property (weak, nonatomic, readonly) UIViewController *topViewController;
+@property (weak, nonatomic, readonly) UIViewController *visibleViewController;
+@property (weak, nonatomic, readonly) UIViewController *previousViewController;
+@property (weak, nonatomic, readonly) UIViewController *nextViewController;
+@property (weak, nonatomic, readonly) NSArray *viewControllers;
 
 @property (weak, nonatomic) id<UAFPagingNavigationControllerDelegate> pagingDelegate;
 @property (nonatomic) BOOL pagingEnabled;

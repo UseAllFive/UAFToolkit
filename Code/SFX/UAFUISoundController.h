@@ -13,9 +13,7 @@
 #import "AVPlayerItem+UAFAdditions.h"
 #import "UAFObject.h"
 
-#if RUN_KIF_TESTS
 extern NSString *const kUAFDidPlayUISoundNotification;
-#endif
 
 /**
  Simple singleton responsible for loading and playing UI sounds. Acts as an

@@ -8,23 +8,14 @@
 
 #import "UIPanGestureRecognizer+UAFAdditions.h"
 
-#if RUN_KIF_TESTS
-static CGFloat const kUAFPanAsSwipeMinVelocity = 1.0f;
-#else
 static CGFloat const kUAFPanAsSwipeMinVelocity = 88.0f;
-#endif
 
 @implementation UIPanGestureRecognizer (UAFAdditions)
 
 - (UIPanGestureRecognizerDirection)direction
 {
-#if RUN_KIF_TESTS
-  static CGFloat ratioFactor = 1.0f;
-  CGPoint velocity = self.distance;
-#else
   static CGFloat ratioFactor = 6.0f;
   CGPoint velocity = self.velocity;
-#endif
   CGFloat magnitudeRatio = ABS(velocity.x || fmaxf(1.0f, velocity.y));
   UIPanGestureRecognizerDirection direction = 0;
   //-- Case: { 0, 100 }
@@ -54,13 +45,8 @@ static CGFloat const kUAFPanAsSwipeMinVelocity = 88.0f;
 
 - (UISwipeGestureRecognizerDirection)swipeDirection
 {
-#if RUN_KIF_TESTS
-  CGFloat minDistance = 1.0f;
-  CGPoint velocity = self.distance;
-#else
   CGFloat minDistance = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 44.0f : 88.0f;
   CGPoint velocity = self.velocity;
-#endif
   UIPanGestureRecognizerDirection direction = self.direction;
   CGPoint distance = self.distance;
   if (ABS(velocity.x) < kUAFPanAsSwipeMinVelocity || ABS(distance.x) < minDistance) {

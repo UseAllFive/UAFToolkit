@@ -10,9 +10,7 @@
 
 #import "UAFDebugUtilities.h"
 
-#if RUN_KIF_TESTS
 NSString *const kUAFDidPlayUISoundNotification = @"Played UI Sound";
-#endif
 
 typedef void (^SoundLoadedBlock)(void);
 
@@ -212,9 +210,7 @@ static UAFUISoundController *controller;
 - (void)didPlaySound
 {
   if (self.shouldDebug) DLog(@"Playing: %@", self.currentSoundFileName);
-#if RUN_KIF_TESTS
   [[NSNotificationCenter defaultCenter] postNotificationName:kUAFDidPlayUISoundNotification object:self];
-#endif
 }
 
 - (id)soundFileObjectForFileName:(NSString *)fileName

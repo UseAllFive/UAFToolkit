@@ -10,6 +10,8 @@
 
 #import "UAFDebugUtilities.h"
 
+//-- Note: This is not KIF compatible.
+
 //-- UIPanGestureRecognizerDirection mirrors UISwipeGestureRecognizerDirection.
 typedef NS_OPTIONS(NSUInteger, UIPanGestureRecognizerDirection) {
   UIPanGestureRecognizerDirectionRight = 1 << 0,

@@ -66,6 +66,15 @@ extern NSString *const kUAFDidPlayUISoundNotification;
  */
 - (BOOL)playSound:(NSString *)name withLoadCompletion:(void (^)(void))completion;
 /**
+ TODO
+ */
+- (BOOL)loadSound:(NSString *)name;
+/**
+ TODO
+ */
+- (void)stopCurrentSound;
+
+/**
  The singleton.
  */
 + (UAFUISoundController *)sharedController;

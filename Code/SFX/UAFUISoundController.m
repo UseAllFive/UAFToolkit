@@ -52,6 +52,10 @@ static UAFUISoundController *controller;
  */
 @property (nonatomic) BOOL isPlaying;
 /**
+ TODO
+ */
+@property (nonatomic) BOOL shouldPlayOnLoad;
+/**
  Internal hook for logic after playing starts.
  */
 - (void)didPlaySound;
@@ -131,7 +135,9 @@ static UAFUISoundController *controller;
   id previousValue = change[NSKeyValueChangeOldKey];
   if ([object isKindOfClass:[AVPlayerItem class]] && context == observationContext) {
     if ([keyPath isEqualToString:@"status"]) {
-      if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
+      if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay
+          || !self.shouldPlayOnLoad
+          ) {
         return nil;
       }
       if (self.loadCompletion) {
@@ -173,6 +179,7 @@ static UAFUISoundController *controller;
     if (self.shouldDebug) DLog(@"Guarded.");
     return NO;
   }
+  BOOL isDifferentSound = ![name isEqualToString:self.currentSoundFileName];
   self.currentSoundFileName = name;
   if (self.shouldPlayAsSystemSounds) {
     if (completion) {
@@ -187,15 +194,19 @@ static UAFUISoundController *controller;
       [self.player.currentItem seekToTime:kCMTimeZero]; //-- Restore current sound.
     }
     //-- Play, but load as needed.
-    if (self.player.currentItem == soundFileObject) {
+    if (soundFileObject == self.player.currentItem) {
       if (completion) {
         dispatch_async(dispatch_get_main_queue(), completion);
       }
       [self.player play];
       [self didPlaySound];
-    } else {
+    } else if (isDifferentSound) {
       self.isPlaying = YES;
+      self.shouldPlayOnLoad = YES;
       [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
+    } else {
+      //-- Can't handle.
+      return NO;
     }
   }
   return YES;
@@ -203,6 +214,26 @@ static UAFUISoundController *controller;
 - (BOOL)playSound:(NSString *)name
 {
   return [self playSound:name withLoadCompletion:nil];
+}
+
+- (BOOL)loadSound:(NSString *)name
+{
+  id soundFileObject = [self soundFileObjectForFileName:name];
+  NSAssert(soundFileObject, @"No existing sound file matches name.");
+  if (!soundFileObject
+      || soundFileObject == self.player.currentItem
+      ) {
+    return NO;
+  }
+  self.currentSoundFileName = name;
+  self.shouldPlayOnLoad = NO;
+  [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
+  return YES;
+}
+
+- (void)stopCurrentSound
+{
+  self.isPlaying = NO;
 }
 
 #pragma mark - Private

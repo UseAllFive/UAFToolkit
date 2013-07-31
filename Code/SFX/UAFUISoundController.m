@@ -175,8 +175,8 @@ static UAFUISoundController *controller;
 - (BOOL)playSound:(NSString *)name withLoadCompletion:(void (^)(void))completion
 {
   id soundFileObject = [self soundFileObjectForFileName:name];
-  if (!soundFileObject && self.isPlaying) {
-    if (self.shouldDebug) DLog(@"Guarded.");
+  NSAssert(soundFileObject, @"No existing sound file matches name.");
+  if (!soundFileObject || self.isPlaying) {
     return NO;
   }
   BOOL isDifferentSound = ![name isEqualToString:self.currentSoundFileName];

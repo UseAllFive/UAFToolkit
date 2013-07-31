@@ -92,7 +92,7 @@
 - (void)fadeInWithCompletion:(void (^)(void))completion
 {
   //-- Note: The sound for indicator views can vary, so this part's empty.
-  [super fadeInWithCompletion:completion];
+  [super fadeInWithCompletion:nil];
   for (CAShapeLayer *element in self.layer.sublayers) {
     element.opacity = 0.0f;
   }
@@ -101,13 +101,15 @@
       element.opacity = self.fromAlpha;
     }
   } completion:nil];
-  [UIView toggleView:self toPopInDirection:UAFPopDirectionOut withOptions:UAFPopOptionOvershoot completion:nil andConfiguration:nil];
+  //-- This will take the longest.
+  [UIView toggleView:self toPopInDirection:UAFPopDirectionOut withOptions:UAFPopOptionOvershoot completion:completion andConfiguration:nil];
 }
 
 - (void)fadeOutWithCompletion:(void (^)(void))completion
 {
-  [super fadeOutWithCompletion:completion];
-  [UIView toggleView:self toPopInDirection:UAFPopDirectionIn withOptions:UAFPopOptionUndershoot completion:nil andConfiguration:nil];
+  [super fadeOutWithCompletion:nil];
+  //-- This will take the longest.
+  [UIView toggleView:self toPopInDirection:UAFPopDirectionIn withOptions:UAFPopOptionUndershoot completion:completion andConfiguration:nil];
 }
 
 #pragma mark - Public

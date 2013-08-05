@@ -67,7 +67,7 @@ static UAFVideoResourceManager *manager;
     registerFile();
     [object setValue:object.dateUpdated.copy forKey:@"previousDateUpdated"];
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    ALog(@"Couldn't download file for %@ at %@: %@", object, sourceURL, error);
+    ALog(@"Couldn't download file for %@ at %@: %@ because %@", object, sourceURL, error.localizedDescription, error.localizedFailureReason);
   }];
   return operation;
 }

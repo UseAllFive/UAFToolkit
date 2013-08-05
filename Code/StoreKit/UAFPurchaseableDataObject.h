@@ -53,6 +53,8 @@
  restored volumes is provided.
  @param restoreError Callback for failure of restoring all all restorable
  transactions.
+ @param assetsSuccess Callback for when all assets for a data-object have been
+ downloaded.
  @return If the setup procedure succeeded. For example, redundant setup directly
  shorts with `YES`, while if payments are disabled, then `NO`.
  @note It is suggested to make a 'product table' from <list>, indexed by
@@ -65,7 +67,8 @@
         transactionFailureHandler:(void (^)(SKPaymentTransaction *transaction, NSManagedObject<UAFPurchaseableDataObject> *dataObject))failure
    transactionCancellationHandler:(void (^)(SKPaymentTransaction *transaction, NSManagedObject<UAFPurchaseableDataObject> *dataObject))cancellation
 restoreTransactionsSuccessHandler:(void (^)(NSArray *volumes))restoreSuccess
-  restoreTransactionsErrorHandler:(void (^)(NSError *error))restoreError;
+  restoreTransactionsErrorHandler:(void (^)(NSError *error))restoreError
+     assetsDownloadSuccessHandler:(void (^)(NSManagedObject<UAFPurchaseableDataObject> *dataObject))assetsSuccess;
 /**
  Standard teardown procedure.
  @return If the teardown procedure succeeded.

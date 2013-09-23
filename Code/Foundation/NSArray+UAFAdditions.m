@@ -64,6 +64,15 @@
 	return [[self _prehashData] SHA1Sum];
 }
 
+- (NSArray *)reversedArray {
+  NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
+  NSEnumerator *enumerator = [self reverseObjectEnumerator];
+  for (id obj in enumerator) {
+    [array addObject:obj];
+  }
+  return array;
+}
+
 @end
 
 @implementation NSArray (UAFPrivateAdditions)

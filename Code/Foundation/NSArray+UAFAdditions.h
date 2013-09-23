@@ -61,6 +61,8 @@
  */
 - (NSMutableArray *)deepMutableCopy NS_RETURNS_RETAINED;
 
+- (NSArray *)reversedArray;
+
 ///--------------
 /// @name Hashing
 ///--------------

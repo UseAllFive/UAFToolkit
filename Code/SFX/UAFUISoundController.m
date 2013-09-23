@@ -135,17 +135,20 @@ static UAFUISoundController *controller;
   id previousValue = change[NSKeyValueChangeOldKey];
   if ([object isKindOfClass:[AVPlayerItem class]] && context == observationContext) {
     if ([keyPath isEqualToString:@"status"]) {
-      if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay
-          || !self.shouldPlayOnLoad
-          ) {
+      if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
+        return nil;
+      }
+      if (!self.shouldPlayOnLoad || !self.isPlaying) {
         return nil;
       }
       if (self.loadCompletion) {
         dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
       }
-      [self.player play];
-      [self didPlaySound];
-      self.isPlaying = NO;
+      if (self.isPlaying) {
+        [self.player play];
+        [self didPlaySound];
+        self.isPlaying = NO;
+      }
     }
   } else if (object == self) {
     if ([keyPath isEqualToString:@"fileNames"] && ![value isEqual:previousValue]) {
@@ -196,6 +199,7 @@ static UAFUISoundController *controller;
       if (completion) {
         dispatch_async(dispatch_get_main_queue(), completion);
       }
+      self.isPlaying = YES;
       [self.player play];
       [self didPlaySound];
     } else if (isDifferentSound) {

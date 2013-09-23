@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UAFToolkit"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "UAFToolkit makes life easier."
   s.description  = <<-DESC
                     UAFToolkit derives mainly from SSToolkit. In addition to

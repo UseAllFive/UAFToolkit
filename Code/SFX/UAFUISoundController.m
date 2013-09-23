@@ -52,6 +52,10 @@ static UAFUISoundController *controller;
  */
 @property (nonatomic) BOOL isPlaying;
 /**
+ Tracks controller state to redundant playing.
+ */
+@property (nonatomic) BOOL isLoading;
+/**
  TODO
  */
 @property (nonatomic) BOOL shouldPlayOnLoad;
@@ -138,6 +142,9 @@ static UAFUISoundController *controller;
       if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
         return nil;
       }
+      if (self.isLoading) {
+        self.isLoading = NO;
+      }
       if (!self.shouldPlayOnLoad || !self.isPlaying) {
         return nil;
       }
@@ -205,7 +212,9 @@ static UAFUISoundController *controller;
     } else if (isDifferentSound) {
       self.isPlaying = YES;
       self.shouldPlayOnLoad = YES;
-      [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
+      if (!self.isLoading) {
+        [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
+      }
     } else {
       //-- Can't handle.
       return NO;
@@ -227,6 +236,7 @@ static UAFUISoundController *controller;
       ) {
     return NO;
   }
+  self.isLoading = YES;
   self.currentSoundFileName = name;
   self.shouldPlayOnLoad = NO;
   [self.player replaceCurrentItemWithPlayerItem:soundFileObject];

@@ -190,9 +190,7 @@ static UAFUISoundController *controller;
   } else {
     //-- Setup and cleanup.
     self.loadCompletion = completion;
-    if (self.player.currentItem) {
-      [self.player.currentItem seekToTime:kCMTimeZero]; //-- Restore current sound.
-    }
+    [soundFileObject seekToTime:kCMTimeZero];
     //-- Play, but load as needed.
     if (soundFileObject == self.player.currentItem) {
       if (completion) {

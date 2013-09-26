@@ -44,6 +44,11 @@
 <UAFLocalStorage, UAFObject>
 
 /**
+ Customization may be needed to avoid pre-mature timeouts. Default is `10.0f` seconds.
+ */
+@property (nonatomic) NSTimeInterval downloadTimeoutInterval;
+
+/**
  Wraps <[UAFLocalStorage operationToDownloadFileAsNeededForDataObject:atURL:toURL:]>.
  @param object Object that conforms to <UAFVideoableDataObject>.
  */

@@ -8,6 +8,8 @@
 
 #import "UAFVideoResourceManager.h"
 
+#define kDefaultDownloadTimeoutInterval 10.0f;
+
 static UAFVideoResourceManager *manager;
 
 @implementation UAFVideoResourceManager
@@ -23,6 +25,7 @@ static UAFVideoResourceManager *manager;
   self = [super init];
   if (self) {
     self.remotelyMirroredFiles = [NSMutableDictionary new];
+    self.downloadTimeoutInterval = kDefaultDownloadTimeoutInterval;
   }
   return self;
 }
@@ -59,7 +62,9 @@ static UAFVideoResourceManager *manager;
     if (self.shouldDebug) DLog(@"Guarded.");
     return nil;
   }
-  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:sourceURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:sourceURL
+                                                         cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                     timeoutInterval:self.downloadTimeoutInterval];
   RKHTTPRequestOperation *operation = [[RKHTTPRequestOperation alloc] initWithRequest:request];
   operation.outputStream = [NSOutputStream outputStreamWithURL:destinationURL append:NO];
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

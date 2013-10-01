@@ -24,7 +24,7 @@ static UAFVideoResourceManager *manager;
 {
   self = [super init];
   if (self) {
-    self.remotelyMirroredFiles = [NSMutableDictionary new];
+    self.remotelyMirroredFiles = [NSMutableDictionary dictionary];
     self.downloadTimeoutInterval = kDefaultDownloadTimeoutInterval;
   }
   return self;

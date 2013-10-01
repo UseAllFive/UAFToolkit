@@ -15,7 +15,7 @@ static UAFVideoResourceManager *manager;
 @implementation UAFVideoResourceManager
 
 //-- UAFLocalStorage
-@synthesize diskStoragePath, remotelyMirroredFiles, backgroundQueue;
+@synthesize diskStoragePath, remotelyMirroredFiles, activeDownloadOperations, backgroundQueue;
 
 //-- UAFObject
 @synthesize shouldDebug;
@@ -25,6 +25,7 @@ static UAFVideoResourceManager *manager;
   self = [super init];
   if (self) {
     self.remotelyMirroredFiles = [NSMutableDictionary dictionary];
+    self.activeDownloadOperations = [NSMutableArray array];
     self.downloadTimeoutInterval = kDefaultDownloadTimeoutInterval;
   }
   return self;
@@ -67,12 +68,15 @@ static UAFVideoResourceManager *manager;
                                                      timeoutInterval:self.downloadTimeoutInterval];
   RKHTTPRequestOperation *operation = [[RKHTTPRequestOperation alloc] initWithRequest:request];
   operation.outputStream = [NSOutputStream outputStreamWithURL:destinationURL append:NO];
+  [self.activeDownloadOperations addObject:operation];
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
     if (self.shouldDebug) DLog(@"Downloaded.");
     registerFile();
     [object setValue:object.dateUpdated.copy forKey:@"previousDateUpdated"];
+    [self.activeDownloadOperations removeObject:operation];
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     ALog(@"ERROR: Couldn't download file for %@ at %@: %@ because %@", object, sourceURL, error.localizedDescription, error.localizedFailureReason);
+    [self.activeDownloadOperations removeObject:operation];
   }];
   return operation;
 }

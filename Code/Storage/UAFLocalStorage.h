@@ -57,6 +57,10 @@
  */
 @property (strong, nonatomic) NSMutableDictionary *remotelyMirroredFiles;
 /**
+ Keeps track of running or queued downloads.
+ */
+@property (strong, nonatomic) NSMutableArray *activeDownloadOperations;
+/**
  Background queue for download operations.
  */
 @property (nonatomic) dispatch_queue_t backgroundQueue;

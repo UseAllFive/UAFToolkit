@@ -48,7 +48,7 @@ static UAFVideoResourceManager *manager;
                   [[UAFVideoResourceManager sharedManager].diskStoragePath stringByAppendingPathComponent:object.relativeDiskStoragePath]
                                            withIntermediateDirectories:YES attributes:nil error:&error];
   if (!success) {
-    ALog(@"Failed to create directory: %@", error);
+    ALog(@"ERROR: Failed to create directory: %@", error);
   }
   void (^registerFile)(void) = ^{
     NSString *key = object.relativeDiskStoragePath;
@@ -72,7 +72,7 @@ static UAFVideoResourceManager *manager;
     registerFile();
     [object setValue:object.dateUpdated.copy forKey:@"previousDateUpdated"];
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    ALog(@"Couldn't download file for %@ at %@: %@ because %@", object, sourceURL, error.localizedDescription, error.localizedFailureReason);
+    ALog(@"ERROR: Couldn't download file for %@ at %@: %@ because %@", object, sourceURL, error.localizedDescription, error.localizedFailureReason);
   }];
   return operation;
 }
@@ -103,7 +103,7 @@ static UAFVideoResourceManager *manager;
         if (didRemove) {
           if (self.shouldDebug) DLog(@"Deleted file: %@", fileURL);
         } else {
-          ALog(@"Failed to delete file: %@", error);
+          ALog(@"ERROR: Failed to delete file: %@", error);
         }
       }
     }

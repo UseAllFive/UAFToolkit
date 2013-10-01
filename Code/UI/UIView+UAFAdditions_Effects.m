@@ -148,9 +148,16 @@
     if ([view respondsToSelector:@selector(soundEffectsPlayer)]) {
       id player = [view performSelector:@selector(soundEffectsPlayer)];
       if (player && [player respondsToSelector:@selector(playSound:withLoadCompletion:)]) {
+        if ([player respondsToSelector:@selector(stopCurrentSound)]) {
+          [player performSelector:@selector(stopCurrentSound)];
+        }
         isPlayingSound = (BOOL)[player performSelector:@selector(playSound:withLoadCompletion:) withObject:soundName withObject:^{
           [UIView toggleView:view toPopInDirection:direction withOptions:options completion:completion andConfiguration:config];
         }];
+        if (!isPlayingSound) {
+          ALog(@"WARNING: Toggling without sound; sound is supported but failed to play: %@", soundName);
+          [UIView toggleView:view toPopInDirection:direction withOptions:options|UAFPopOptionSilent completion:completion andConfiguration:config];
+        }
       }
     }
     if ([view respondsToSelector:@selector(setIsPlayingSound:)]) {

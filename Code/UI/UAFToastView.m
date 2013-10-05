@@ -56,6 +56,7 @@ static NSDictionary *defaultOptions;
   dispatch_once(&onceToken, ^{
     defaultOptions = @{ @"toggleTransitionDuration" : @0.4f,
                         @"autoDismissDuration" : @3.0f,
+                        @"dismissalBlock" : [NSNull null],
                         @"shouldAutoDismiss" : @YES,
                         @"shouldLockTextWhenVisible" : @YES,
                         @"edgeOffset" : (isPhone ? @17.0f : @44.0f),
@@ -127,7 +128,14 @@ static NSDictionary *defaultOptions;
 
 - (void)fadeOutTo:(CGFloat)toAlpha withDelay:(NSTimeInterval)delay andCompletion:(void (^)(void))completion
 {
-  [super fadeOutTo:toAlpha withDelay:delay andCompletion:completion];
+  [super fadeOutTo:toAlpha withDelay:delay andCompletion:^{
+    if (completion) {
+      completion();
+    }
+    if (self.dismissalBlock) {
+      self.dismissalBlock();
+    }
+  }];
   [UIView toggleView:self toPopInDirection:UAFPopDirectionIn withOptions:UAFPopOptionNone completion:nil andConfiguration:@{ @"Delay" : @( delay ) }];
 }
 

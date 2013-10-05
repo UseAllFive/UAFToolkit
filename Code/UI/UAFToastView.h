@@ -80,6 +80,10 @@
  Prevent <titleLabel> text from changing when it's visible. `YES` by default.
  */
 @property (nonatomic) BOOL shouldLockTextWhenVisible;
+/**
+ Callback.
+ */
+@property (nonatomic, copy) void (^dismissalBlock)(void);
 
 /// -----------------------------
 /// @name Other Public Properties

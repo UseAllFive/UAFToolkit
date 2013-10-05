@@ -70,7 +70,7 @@ static UAFVideoResourceManager *manager;
   operation.outputStream = [NSOutputStream outputStreamWithURL:destinationURL append:NO];
   [self.activeDownloadOperations addObject:operation];
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-    if (self.shouldDebug) DLog(@"Downloaded.");
+    if (self.shouldDebug) DLog(@"Downloaded file at %@", sourceURL);
     registerFile();
     [object setValue:object.dateUpdated.copy forKey:@"previousDateUpdated"];
     [self.activeDownloadOperations removeObject:operation];

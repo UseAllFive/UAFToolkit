@@ -22,9 +22,14 @@
  */
 @property (weak, nonatomic, readonly, getter = videoURL) NSURL *videoURL;
 /**
- Full local url.
+ Full local path.
  @note It's suggested to use the appropriate <[UAFLocalStorage diskStoragePath]>
  and <videoFileName> if available.
+ */
+@property (weak, nonatomic, readonly, getter = localVideoPath) NSString *localVideoPath;
+/**
+ Full local url.
+ @see localVideoPath
  */
 @property (weak, nonatomic, readonly, getter = localVideoURL) NSURL *localVideoURL;
 

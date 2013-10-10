@@ -12,9 +12,19 @@
 
 @implementation NSString (UAFAdditions)
 
+#pragma mark - Equality
+
+- (BOOL)isEqualToSelector:(SEL)selector {
+  return [self isEqualToString:NSStringFromSelector(selector)];
+}
+
+#pragma mark - Checking Contents
+
 - (BOOL)containsString:(NSString *)string {
 	return !NSEqualRanges([self rangeOfString:string], NSMakeRange(NSNotFound, 0));
 }
+
+#pragma mark - Hashing
 
 - (NSString *)MD5Sum {
 	const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
@@ -27,6 +37,8 @@
 	NSData *data = [NSData dataWithBytes:cstr length:self.length];
 	return [data SHA1Sum];
 }
+
+#pragma mark - Comparing Versions
 
 // Adapted from http://snipplr.com/view/2771/compare-two-version-strings
 - (NSComparisonResult)compareToVersionString:(NSString *)version {

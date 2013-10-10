@@ -13,6 +13,15 @@
  */
 @interface NSString (UAFAdditions)
 
+///---------------
+/// @name Equality
+///---------------
+
+/**
+ TODO: Doc.
+ */
+- (BOOL)isEqualToSelector:(SEL)selector;
+
 ///------------------------
 /// @name Checking Contents
 ///------------------------
@@ -230,5 +239,9 @@
 ///------------
 
 - (NSString *)nibName;
+
+///-------------------------
+/// @name Comparing Versions
+///-------------------------
 
 @end

@@ -114,8 +114,10 @@ static NSDictionary *defaultOptions;
       self.titleLabel.text = [value uppercaseString];
       [self.titleLabel sizeToFit];
       self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
+      self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
       self.titleLabel.centerX = self.relCenterX;
       self.titleLabel.centerY = self.relCenterY;
+      //DLog(@"Center: %@, label size: %@", NSStringFromCGPoint(self.center), NSStringFromCGSize(self.titleLabel.size));
     }
   }
 }

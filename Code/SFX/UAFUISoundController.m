@@ -100,7 +100,7 @@ static UAFUISoundController *controller;
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-    keyPathsToObserve = @[ @"fileNames" ];
+    keyPathsToObserve = @[ NSStringFromSelector(@selector(fileNames)) ];
   });
   self.shouldDebug = YES;
   self = [super init];
@@ -110,7 +110,7 @@ static UAFUISoundController *controller;
       self.volumeFactor = 0.1f;
     }
     for (NSString *keyPath in keyPathsToObserve) {
-      [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+      [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     }
   }
   return self;
@@ -158,7 +158,9 @@ static UAFUISoundController *controller;
       }
     }
   } else if (object == self) {
-    if ([keyPath isEqualToString:@"fileNames"] && ![value isEqual:previousValue]) {
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(fileNames))]
+        && ![value isEqual:previousValue]
+        ) {
       [self setupSounds];
     }
   }

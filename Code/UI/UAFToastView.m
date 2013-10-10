@@ -66,7 +66,7 @@ static NSDictionary *defaultOptions;
                         @"titleLabel.font" : [UIFont boldSystemFontOfSize:(isPhone ? 12.0f : 16.0f)],
                         @"titleLabel.textColor" : [UIColor blackColor],
                         @"titleLabel.backgroundColor" : [UIColor clearColor] };
-    keyPathsToObserve = @[ @"titleText" ];
+    keyPathsToObserve = @[ NSStringFromSelector(@selector(titleText)) ];
   });
   //-- Setup.
   self.hidden = YES;
@@ -106,7 +106,7 @@ static NSDictionary *defaultOptions;
     return nil;
   }
   if (object == self) {
-    if ([keyPath isEqualToString:@"titleText"]
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(titleText))]
         && (!self.shouldLockTextWhenVisible || self.isHidden)
         ) {
       //-- Re-layout.

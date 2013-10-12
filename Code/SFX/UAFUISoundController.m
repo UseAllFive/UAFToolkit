@@ -231,13 +231,12 @@ static UAFUISoundController *controller;
 
 - (BOOL)loadSound:(NSString *)name
 {
-  id soundFileObject = [self soundFileObjectForFileName:name];
-  NSAssert(soundFileObject, @"No existing sound file matches name.");
-  if (!soundFileObject
-      || soundFileObject == self.player.currentItem
-      ) {
+  if ([name isEqualToString:self.currentSoundFileName]) {
+    if (self.shouldDebug) DLog(@"Guarded: Already playing sound: %@", name);
     return NO;
   }
+  id soundFileObject = [self soundFileObjectForFileName:name];
+  NSAssert(soundFileObject, @"No existing sound file matches name.");
   self.isLoading = YES;
   self.currentSoundFileName = name;
   self.shouldPlayOnLoad = NO;

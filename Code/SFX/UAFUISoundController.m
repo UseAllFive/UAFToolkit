@@ -146,6 +146,7 @@ static UAFUISoundController *controller;
         self.isLoading = NO;
       }
       if (!self.shouldPlayOnLoad || !self.isPlaying) {
+        self.shouldPlayOnLoad = YES;
         return !self.shouldDebug ?: DLog(@"Guarded: Player shouldn't play.") ;
       }
       if (self.loadCompletion) {
@@ -213,7 +214,6 @@ static UAFUISoundController *controller;
       [self didPlaySound];
     } else if (isDifferentSound) {
       self.isPlaying = YES;
-      self.shouldPlayOnLoad = YES;
       if (!self.isLoading) {
         [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
       }

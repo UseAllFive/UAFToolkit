@@ -8,6 +8,8 @@
 
 #import "UAFToastView.h"
 
+#import "NSString+UAFAdditions.h"
+
 static UAFToastView *toastView;
 
 static NSArray *keyPathsToObserve;
@@ -102,8 +104,8 @@ static NSDictionary *defaultOptions;
   id previousValue = change[NSKeyValueChangeOldKey];
   id value = change[NSKeyValueChangeNewKey];
   if (context != observationContext || [previousValue isEqual:value]) {
-    if (self.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    if (self.shouldDebug) DLog(@"Guarded: No bindings for params, or redundant value.");
+    return;
   }
   if (object == self) {
     if ([keyPath isEqualToString:NSStringFromSelector(@selector(titleText))]
@@ -111,7 +113,12 @@ static NSDictionary *defaultOptions;
         ) {
       //-- Re-layout.
       //-- Forward.
-      self.titleLabel.text = [value uppercaseString];
+      NSString *text = [[value uppercaseString] stringByTrimmingLeadingAndTrailingWhitespaceAndNewlineCharacters];
+      if (!text.length) {
+        if (self.shouldDebug) DLog(@"Guarded: Empty text.");
+        return;
+      }
+      self.titleLabel.text = text;
       [self.titleLabel sizeToFit];
       self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
       self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
@@ -152,7 +159,7 @@ static NSDictionary *defaultOptions;
   if ((!self.titleText || !self.titleText.length)
       || visible == !self.isHidden
       ) {
-    if (self.shouldDebug) DLog(@"Guarded.");
+    if (self.shouldDebug) DLog(@"Guarded: Empty text or redundant toggling.");
     return NO;
   }
   //-- Step 2 / 3.

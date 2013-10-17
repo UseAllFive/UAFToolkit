@@ -140,14 +140,16 @@ static UAFUISoundController *controller;
   if ([object isKindOfClass:[AVPlayerItem class]] && context == observationContext) {
     if ([keyPath isEqualToString:@"status"]) {
       if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
-        return !self.shouldDebug ?: DLog(@"Guarded: Player isn't ready to play.") ;
+        if (self.shouldDebug) DLog(@"Guarded: Player isn't ready to play.");
+        return;
       }
       if (self.isLoading) {
         self.isLoading = NO;
       }
       if (!self.shouldPlayOnLoad || !self.isPlaying) {
         self.shouldPlayOnLoad = YES;
-        return !self.shouldDebug ?: DLog(@"Guarded: Player shouldn't play.") ;
+        if (self.shouldDebug) DLog(@"Guarded: Player shouldn't play.");
+        return;
       }
       if (self.loadCompletion) {
         dispatch_async(dispatch_get_main_queue(), self.loadCompletion);

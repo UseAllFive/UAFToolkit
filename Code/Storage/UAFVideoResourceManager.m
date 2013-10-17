@@ -90,7 +90,7 @@ static UAFVideoResourceManager *manager;
   NSArray *classFiles = self.remotelyMirroredFiles[path];
   if (!classFiles) {
     if (self.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    return;
   }
   NSFileManager *fs = [NSFileManager defaultManager];
   NSString *fullPath = [self.diskStoragePath stringByAppendingPathComponent:path];

@@ -118,7 +118,7 @@
 {
   if (animating == self.isAnimating) {
     if (self.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    return;
   }
   self.isAnimating = animating;
   if (animating) {

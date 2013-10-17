@@ -50,7 +50,7 @@ static NSDictionary *defaultOptions;
   self.shouldDebug = YES;
   if (self.didCommonInit) {
     if (self.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    return;
   }
   self.didCommonInit = YES;
   BOOL isPhone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;

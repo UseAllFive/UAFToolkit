@@ -14,7 +14,7 @@
 {
   if (![view conformsToProtocol:@protocol(UAFModalView)]) {
     if (view.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    return;
   }
   CGFloat totalDuration = view.toggleTransitionDuration;
   UAFDirection visibleDirection = UAFDirectionUp; //-- Default.
@@ -76,7 +76,7 @@
   UIView<UAFToggledView> *toggledView = (UIView<UAFToggledView> *)
   ([view conformsToProtocol:@protocol(UAFToggledView)] ? view : superview);
   if (!toggledView) {
-    return nil;
+    return;
   }
   CAGradientLayer *mask = (CAGradientLayer *)view.layer.mask;
   if (!mask && !CGRectEqualToRect(view.bounds, CGRectZero)) {
@@ -93,7 +93,7 @@
   }
   if (!mask) {
     if (toggledView && toggledView.shouldDebug) DLog(@"Guarded.");
-    return nil;
+    return;
   }
   //-- UIView's +animateWith[...] doesn't respect the 'soft edges' from the gradient mask.
   [CATransaction begin];

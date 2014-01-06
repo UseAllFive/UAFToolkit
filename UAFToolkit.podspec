@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UAFToolkit"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "UAFToolkit makes life easier."
   s.description  = <<-DESC
                     UAFToolkit derives mainly from SSToolkit. In addition to
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.authors      = { "Peng Wang"   => "peng@pengxwang.com",
                      "Sam Soffes"  => "sam@soff.es" }
-  s.source       = { :git => "https://bitbucket.org/hlfcoding/uaftoolkit.git",
-                     :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/UseAllFive/UAFToolkit",
+                     :tag => "0.1.3" }
   s.platform     = :ios, '5.0'
   s.requires_arc = true
 

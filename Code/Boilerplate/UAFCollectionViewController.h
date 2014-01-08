@@ -11,6 +11,9 @@
 #import "UAFObject.h"
 #import "UAFNavigationItem.h"
 
+/**
+ See <UAFViewController>.
+ */
 @interface UAFCollectionViewController : UICollectionViewController
 
 <UAFObject, UAFNavigationItem>

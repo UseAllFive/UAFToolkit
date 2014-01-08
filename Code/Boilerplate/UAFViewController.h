@@ -11,6 +11,11 @@
 #import "UAFObject.h"
 #import "UAFNavigationItem.h"
 
+/**
+ Custom base `UIViewController` that offers conveniences: implementation of
+ `UAFObject`. Also implements `UAFNavigationItem` to support being used inside
+ custom navigation controllers.
+ */
 @interface UAFViewController : UIViewController
 
 <UAFObject, UAFNavigationItem>

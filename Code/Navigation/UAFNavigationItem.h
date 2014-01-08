@@ -10,19 +10,61 @@
 
 #import "UAFNavigationController.h"
 
+/**
+ A common protocol for items representing custom navigation child controllers.
+ It includes the delegate protocol, so the navigation item is automatically a
+ navigation controller delegate and can manage its own navigation controller,
+ for nested navigation hierarchies.
+ 
+ It also further enhances the navigation controller's ability to be non-linear
+ if ever needed. See <previousNavigationItemIdentifier>,
+ <nextNavigationItemIdentifier>, and <navigationStateInfo>
+ */
 @protocol UAFNavigationItem <UAFNavigationControllerDelegate>
 
 @optional
 
+/**
+ The navigation item can optionally know its previous sibling's ID, so its
+ navigation controller can automatically pop to it, or properly replace the
+ current previous sibling with the requested one.
+ */
 @property (strong, nonatomic) NSString *previousNavigationItemIdentifier; //-- TODO: Finally: Think through design of this property.
+/**
+ The navigation item can optionally know its next sibling's ID, so its
+ navigation controller can automatically, preemptively push it, or properly
+ replace the current next sibling with the requested one.
+ */
 @property (strong, nonatomic) NSString *nextNavigationItemIdentifier;
 
+/**
+ The navigation item can keep reference to its navigation controller, much like
+ how it does with its `navigationController`, which is already reserved as a
+ `UINavigationController`.
+ */
 @property (weak, nonatomic) id<UAFNavigationController> customNavigationController;
 
-//-- Expected to implement only both.
+/**
+ Custom presentation flag much like `isBeingPresented`. Managed by the
+ navigation controller. Avoid setting this manually otherwise.
+ @note Requires implementing <customIsBeingDismissed>.
+ */
 @property (nonatomic) BOOL customIsBeingPresented;
+/**
+ Custom presentation flag much like `isBeingDismissed`. Managed by the
+ navigation controller. Avoid setting this manually otherwise.
+ @note Requires implementing <customIsBeingPresented>.
+ */
 @property (nonatomic) BOOL customIsBeingDismissed;
 
+/**
+ The navigation item can optionally provide a state information that can be used
+ deterministically to restore state to its represented view controller. This
+ usually requires providing data associated with the view controller.
+ @note Use this when possible, and only use
+ <viewWillAppearFromDismissalOfModalViewControllerOfClass:withNavigationPath:andUserInfo:>
+ as needed.
+ */
 @property (strong, nonatomic, readonly, getter = navigationStateInfo) NSDictionary *navigationStateInfo;
 
 /**

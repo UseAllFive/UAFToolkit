@@ -46,7 +46,7 @@
  @see shouldLockTextWhenVisible
  @note Key-value observed.
  */
-@property (strong, nonatomic) NSString *titleText;
+@property (strong, nonatomic, setter = setTitleText:) NSString *titleText;
 /**
  The direction the toast should be snapping to, while taking <edgeOffset> into
  account. Default is `UAFDirectionDown`.

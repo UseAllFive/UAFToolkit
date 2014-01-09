@@ -68,7 +68,7 @@ static NSDictionary *defaultOptions;
                         @"titleLabel.font" : [UIFont boldSystemFontOfSize:(isPhone ? 12.0f : 16.0f)],
                         @"titleLabel.textColor" : [UIColor blackColor],
                         @"titleLabel.backgroundColor" : [UIColor clearColor] };
-    keyPathsToObserve = @[ NSStringFromSelector(@selector(titleText)) ];
+    keyPathsToObserve = @[ ];
   });
   //-- Setup.
   self.hidden = YES;
@@ -103,31 +103,6 @@ static NSDictionary *defaultOptions;
 {
   id previousValue = change[NSKeyValueChangeOldKey];
   id value = change[NSKeyValueChangeNewKey];
-  if (context != observationContext || [previousValue isEqual:value]) {
-    if (self.shouldDebug) DLog(@"Guarded: No bindings for params, or redundant value.");
-    return;
-  }
-  //-- TODO: Remove.
-  if (object == self) {
-    if ([keyPath isEqualToString:NSStringFromSelector(@selector(titleText))]
-        && (!self.shouldLockTextWhenVisible || self.isHidden)
-        ) {
-      //-- Re-layout.
-      //-- Forward.
-      NSString *text = [[value uppercaseString] stringByTrimmingLeadingAndTrailingWhitespaceAndNewlineCharacters];
-      if (!text.length) {
-        if (self.shouldDebug) DLog(@"Guarded: Empty text.");
-        return;
-      }
-      self.titleLabel.text = text;
-      [self.titleLabel sizeToFit];
-      self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
-      self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
-      self.titleLabel.centerX = self.relCenterX;
-      self.titleLabel.centerY = self.relCenterY;
-      //DLog(@"Center: %@, label size: %@", NSStringFromCGPoint(self.center), NSStringFromCGSize(self.titleLabel.size));
-    }
-  }
 }
 
 - (void)fadeInTo:(CGFloat)toAlpha withDelay:(NSTimeInterval)delay andCompletion:(void (^)(void))completion
@@ -150,6 +125,31 @@ static NSDictionary *defaultOptions;
 }
 
 #pragma mark - Public
+
+- (void)setTitleText:(NSString *)titleText
+{
+  if ([titleText isEqualToString:_titleText]) {
+    if (self.shouldDebug) DLog(@"Guarded.");
+    return;
+  }
+  _titleText = titleText;
+  if (!self.shouldLockTextWhenVisible || self.isHidden) {
+    //-- Re-layout.
+    //-- Forward.
+    NSString *text = [titleText.uppercaseString stringByTrimmingLeadingAndTrailingWhitespaceAndNewlineCharacters];
+    if (!text.length) {
+      if (self.shouldDebug) DLog(@"Guarded: Empty text.");
+      return;
+    }
+    self.titleLabel.text = text;
+    [self.titleLabel sizeToFit];
+    self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
+    self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
+    self.titleLabel.centerX = self.relCenterX;
+    self.titleLabel.centerY = self.relCenterY;
+    //DLog(@"Center: %@, label size: %@", NSStringFromCGPoint(self.center), NSStringFromCGSize(self.titleLabel.size));
+  }
+}
 
 - (BOOL)toggleToVisible:(BOOL)visible relativeToView:(UIView *)view
 {

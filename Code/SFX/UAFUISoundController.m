@@ -100,7 +100,7 @@ static UAFUISoundController *controller;
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-    keyPathsToObserve = @[ NSStringFromSelector(@selector(fileNames)) ];
+    keyPathsToObserve = @[ ];
   });
   self.shouldDebug = YES;
   self = [super init];
@@ -110,7 +110,7 @@ static UAFUISoundController *controller;
       self.volumeFactor = 0.1f;
     }
     for (NSString *keyPath in keyPathsToObserve) {
-      [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+      [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:observationContext];
     }
   }
   return self;
@@ -129,7 +129,7 @@ static UAFUISoundController *controller;
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kUAFVolumeChangeNotification object:nil];
   [self teardownSounds];
   for (NSString *keyPath in keyPathsToObserve) {
-    [self removeObserver:self forKeyPath:keyPath];
+    [self removeObserver:self forKeyPath:keyPath context:observationContext];
   }
 }
 
@@ -160,12 +160,6 @@ static UAFUISoundController *controller;
         self.isPlaying = NO;
       }
     }
-  } else if (object == self) {
-    if ([keyPath isEqualToString:NSStringFromSelector(@selector(fileNames))]
-        && ![value isEqual:previousValue]
-        ) {
-      [self setupSounds];
-    }
   }
 }
 
@@ -186,6 +180,15 @@ static UAFUISoundController *controller;
 }
 
 #pragma mark - Public
+
+- (void)setFileNames:(NSArray *)fileNames
+{
+  if (fileNames == _fileNames) {
+    if (self.shouldDebug) DLog(@"Guarded.");
+  }
+  _fileNames = fileNames;
+  [self setupSounds];
+}
 
 - (BOOL)playSound:(NSString *)name withLoadCompletion:(void (^)(void))completion
 {

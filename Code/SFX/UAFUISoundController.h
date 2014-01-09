@@ -44,7 +44,7 @@ extern NSString *const kUAFDidPlayUISoundNotification;
 /**
  Once file names are set, the sounds go through setup again.
  */
-@property (strong, nonatomic) NSArray *fileNames;
+@property (strong, nonatomic, setter = setFileNames:) NSArray *fileNames;
 /**
  Convenient constructor.
  @param fileNames File names.

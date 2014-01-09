@@ -107,6 +107,7 @@ static NSDictionary *defaultOptions;
     if (self.shouldDebug) DLog(@"Guarded: No bindings for params, or redundant value.");
     return;
   }
+  //-- TODO: Remove.
   if (object == self) {
     if ([keyPath isEqualToString:NSStringFromSelector(@selector(titleText))]
         && (!self.shouldLockTextWhenVisible || self.isHidden)

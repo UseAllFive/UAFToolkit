@@ -18,7 +18,8 @@
 ///---------------
 
 /**
- TODO: Doc.
+ Check equality against string version of selector.
+ @param selector Selector.
  */
 - (BOOL)isEqualToSelector:(SEL)selector;
 

@@ -8,6 +8,11 @@
 
 @protocol UAFObject <NSObject>
 
+/**
+ Every object has a debug flag. It's up to its implementation what the debug
+ flag actually controls. Most libraries will cease most loggin if the flag is
+ off.
+ */
 @property (nonatomic) BOOL shouldDebug;
 
 @optional
@@ -26,7 +31,13 @@
 
 @optional
 
+/**
+ Flag for guarding redundant inits. Useful for singletons.
+ */
 @property (nonatomic) BOOL didCommonInit;
+/**
+ Flag for guarding redundant awakes. Useful for singletons.
+ */
 @property (nonatomic) BOOL didCommonAwake;
 
 @end

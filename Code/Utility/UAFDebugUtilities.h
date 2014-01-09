@@ -17,16 +17,16 @@
 
 //-- DebugLog
 #if defined(DEBUG) || defined(UAF_FORCE_DEBUG)
-#   define DLog(...) ALog(__VA_ARGS__)
-#   define NLog(...) { if (DHasAspect(UAFDebugAspectNetworking)) ALog(__VA_ARGS__); }
-#   define SLog(...) { if (DHasAspect(UAFDebugAspectStyling)) ALog(__VA_ARGS__); }
-#   define MLog(...) { if (DHasAspect(UAFDebugAspectMedia)) ALog(__VA_ARGS__); }
+#   define DLog(fmt, ...) ALog(@"DEBUG: " fmt, ##__VA_ARGS__)
+#   define NLog(fmt, ...) { if (DHasAspect(UAFDebugAspectNetworking)) ALog(@"NETWORKING: " fmt, ##__VA_ARGS__); }
+#   define SLog(fmt, ...) { if (DHasAspect(UAFDebugAspectStyling)) ALog(@"STYLING: " fmt, ##__VA_ARGS__); }
+#   define MLog(fmt, ...) { if (DHasAspect(UAFDebugAspectMedia)) ALog(@"MEDIA: " fmt, ##__VA_ARGS__); }
 //-- UIAlertViewLog
 #   define ULog(fmt, ...) { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
 #   if !DEBUG_LOG
 #     undef DLog
 #     define DLog(...)
-#     define FLog() NSLog((@"%s\n"), __PRETTY_FUNCTION__);
+#     define FLog() NSLog((@"CALL: %s\n"), __PRETTY_FUNCTION__);
 #   else
 #     define FLog()
 #   endif

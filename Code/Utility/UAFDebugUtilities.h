@@ -22,7 +22,7 @@
 #   define SLog(fmt, ...) { if (DHasAspect(UAFDebugAspectStyling)) ALog(@"STYLING: " fmt, ##__VA_ARGS__); }
 #   define MLog(fmt, ...) { if (DHasAspect(UAFDebugAspectMedia)) ALog(@"MEDIA: " fmt, ##__VA_ARGS__); }
 //-- UIAlertViewLog
-#   define ULog(fmt, ...) { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#   define ULog(fmt, ...) { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
 #   if !DEBUG_LOG
 #     undef DLog
 #     define DLog(...)

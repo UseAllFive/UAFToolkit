@@ -4,7 +4,7 @@
 
 //
 //  Created by Peng Wang on 7/23/12.
-//  Copyright (c) 2012-2013UseAllFive. See license.
+//  Copyright (c) 2012-2014 UseAllFive. See license.
 //
 
 #import <UIKit/UIKit.h>

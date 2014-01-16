@@ -77,7 +77,8 @@ static NSDictionary *defaultOptions;
   [self addSubview:self.titleLabel];
   //-- Bind.
   for (NSString *keyPath in keyPathsToObserve) {
-    [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:observationContext];
+    [self addObserver:self forKeyPath:keyPath
+              options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:&observationContext];
   }
   //-- Styling.
   self.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -95,14 +96,20 @@ static NSDictionary *defaultOptions;
 {
   //-- Unbind.
   for (NSString *keyPath in keyPathsToObserve) {
-    [self removeObserver:self forKeyPath:keyPath context:observationContext];
+    [self removeObserver:self forKeyPath:keyPath context:&observationContext];
   }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-  id previousValue = change[NSKeyValueChangeOldKey];
-  id value = change[NSKeyValueChangeNewKey];
+  if (context == &observationContext) {
+
+    id previousValue = change[NSKeyValueChangeOldKey];
+    id value = change[NSKeyValueChangeNewKey];
+
+} else {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+  }
 }
 
 - (void)fadeInTo:(CGFloat)toAlpha withDelay:(NSTimeInterval)delay andCompletion:(void (^)(void))completion

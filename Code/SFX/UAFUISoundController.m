@@ -110,7 +110,8 @@ static UAFUISoundController *controller;
       self.volumeFactor = 0.1f;
     }
     for (NSString *keyPath in keyPathsToObserve) {
-      [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:observationContext];
+      [self addObserver:self forKeyPath:keyPath
+                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:&observationContext];
     }
   }
   return self;
@@ -129,37 +130,44 @@ static UAFUISoundController *controller;
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kUAFVolumeChangeNotification object:nil];
   [self teardownSounds];
   for (NSString *keyPath in keyPathsToObserve) {
-    [self removeObserver:self forKeyPath:keyPath context:observationContext];
+    [self removeObserver:self forKeyPath:keyPath context:&observationContext];
   }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-  id value = change[NSKeyValueChangeNewKey];
-  id previousValue = change[NSKeyValueChangeOldKey];
-  if ([object isKindOfClass:[AVPlayerItem class]] && context == observationContext) {
-    if ([keyPath isEqualToString:@"status"]) {
-      if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
-        if (self.shouldDebug) DLog(@"Guarded: Player isn't ready to play.");
-        return;
-      }
-      if (self.isLoading) {
-        self.isLoading = NO;
-      }
-      if (!self.shouldPlayOnLoad || !self.isPlaying) {
-        self.shouldPlayOnLoad = YES;
-        if (self.shouldDebug) DLog(@"Guarded: Player shouldn't play.");
-        return;
-      }
-      if (self.loadCompletion) {
-        dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
-      }
-      if (self.isPlaying) {
-        [self.player play];
-        [self didPlaySound];
-        self.isPlaying = NO;
+  if (context == &observationContext) {
+
+    id value = change[NSKeyValueChangeNewKey];
+    id previousValue = change[NSKeyValueChangeOldKey];
+
+    if ([object isKindOfClass:[AVPlayerItem class]]) {
+      if ([keyPath isEqualToString:@"status"]) {
+        if ([value unsignedIntegerValue] != AVPlayerItemStatusReadyToPlay) {
+          if (self.shouldDebug) DLog(@"Guarded: Player isn't ready to play.");
+          return;
+        }
+        if (self.isLoading) {
+          self.isLoading = NO;
+        }
+        if (!self.shouldPlayOnLoad || !self.isPlaying) {
+          self.shouldPlayOnLoad = YES;
+          if (self.shouldDebug) DLog(@"Guarded: Player shouldn't play.");
+          return;
+        }
+        if (self.loadCompletion) {
+          dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
+        }
+        if (self.isPlaying) {
+          [self.player play];
+          [self didPlaySound];
+          self.isPlaying = NO;
+        }
       }
     }
+
+  } else {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
   }
 }
 
@@ -287,7 +295,7 @@ static UAFUISoundController *controller;
     [item addObserver:self
            forKeyPath:@"status"
               options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew
-              context:observationContext];
+              context:&observationContext];
     soundFileObject = item;
   }
   return soundFileObject;
@@ -319,7 +327,7 @@ static UAFUISoundController *controller;
 {
   if (!self.shouldPlayAsSystemSounds) {
     [self.sounds enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-      [obj removeObserver:self forKeyPath:@"status" context:observationContext];
+      [obj removeObserver:self forKeyPath:@"status" context:&observationContext];
     }];
   }
   self.sounds = nil;

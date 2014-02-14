@@ -66,6 +66,8 @@ static NSDictionary *defaultOptions;
                         @"shouldLockTextWhenVisible" : @YES,
                         @"titleLabel.backgroundColor" : [UIColor clearColor],
                         @"titleLabel.font" : [UIFont boldSystemFontOfSize:(isPhone ? 12.0f : 16.0f)],
+                        @"titleLabel.lineBreakMode": @(NSLineBreakByWordWrapping),
+                        @"titleLabel.numberOfLines": @0,
                         @"titleLabel.textColor" : [UIColor blackColor],
                         @"toggleTransitionDuration" : @0.4f };
     keyPathsToObserve = @[ ];
@@ -107,9 +109,23 @@ static NSDictionary *defaultOptions;
     id previousValue = change[NSKeyValueChangeOldKey];
     id value = change[NSKeyValueChangeNewKey];
 
-} else {
+  } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
   }
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+  //-- Resize title label.
+  CGFloat containerWidth = self.width == 0 ? [UIScreen mainScreen].currentBounds.size.width : self.width;
+  [self.titleLabel sizeToFit];
+  self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
+  self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
+  self.titleLabel.width = MIN(self.titleLabel.width, containerWidth); //-- Constrain to container.
+  //-- Reposition title label.
+  self.titleLabel.centerX = self.relCenterX;
+  self.titleLabel.centerY = self.relCenterY;
 }
 
 - (void)fadeInTo:(CGFloat)toAlpha withDelay:(NSTimeInterval)delay andCompletion:(void (^)(void))completion
@@ -149,11 +165,7 @@ static NSDictionary *defaultOptions;
       return;
     }
     self.titleLabel.text = text;
-    [self.titleLabel sizeToFit];
-    self.titleLabel.bounds = CGRectInset(self.titleLabel.bounds, -self.padding * 2.0f, -self.padding);
-    self.titleLabel.width += fmodf(self.titleLabel.width, 2.0f);
-    self.titleLabel.centerX = self.relCenterX;
-    self.titleLabel.centerY = self.relCenterY;
+    [self setNeedsLayout];
     //DLog(@"Center: %@, label size: %@", NSStringFromCGPoint(self.center), NSStringFromCGSize(self.titleLabel.size));
   }
 }
@@ -202,6 +214,7 @@ static NSDictionary *defaultOptions;
   //-- Setup layout.
   //-- Centers by default.
   self.center = view.realCenter;
+  self.width = MIN(self.width, view.width); //-- Constrain to container.
   //-- Snap to edge.
   CGSize size = view.bounds.size;
   if (self.positionDirection & UAFDirectionUp || self.positionDirection & UAFDirectionLeft) {

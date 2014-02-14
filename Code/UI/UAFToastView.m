@@ -56,18 +56,18 @@ static NSDictionary *defaultOptions;
   BOOL isPhone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    defaultOptions = @{ @"toggleTransitionDuration" : @0.4f,
-                        @"autoDismissDuration" : @3.0f,
+    defaultOptions = @{ @"autoDismissDuration" : @3.0f,
                         @"dismissalBlock" : [NSNull null],
+                        @"edgeOffset" : (isPhone ? @17.0f : @44.0f),
+                        @"minScale" : @0.9f,
+                        @"padding" : @10.0f,
+                        @"positionDirection" : @(UAFDirectionDown),
                         @"shouldAutoDismiss" : @YES,
                         @"shouldLockTextWhenVisible" : @YES,
-                        @"edgeOffset" : (isPhone ? @17.0f : @44.0f),
-                        @"padding" : @10.0f,
-                        @"minScale" : @0.9f,
-                        @"positionDirection" : @(UAFDirectionDown),
+                        @"titleLabel.backgroundColor" : [UIColor clearColor],
                         @"titleLabel.font" : [UIFont boldSystemFontOfSize:(isPhone ? 12.0f : 16.0f)],
                         @"titleLabel.textColor" : [UIColor blackColor],
-                        @"titleLabel.backgroundColor" : [UIColor clearColor] };
+                        @"toggleTransitionDuration" : @0.4f };
     keyPathsToObserve = @[ ];
   });
   //-- Setup.

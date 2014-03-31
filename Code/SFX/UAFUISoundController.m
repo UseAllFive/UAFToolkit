@@ -252,6 +252,9 @@ static UAFUISoundController *controller;
 - (void)stopCurrentSound
 {
   self.isPlaying = NO;
+  if (!self.shouldPlayAsSystemSounds) {
+    [self.player pause];
+  }
 }
 
 #pragma mark - Private

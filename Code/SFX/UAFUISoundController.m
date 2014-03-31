@@ -12,6 +12,8 @@
 
 NSString *const kUAFDidPlayUISoundNotification = @"Played UI Sound";
 
+NSTimeInterval const kPlayerLoadTimeoutDuration = 1.0f;
+
 typedef void (^SoundLoadedBlock)(void);
 
 static void *observationContext = &observationContext;
@@ -221,7 +223,13 @@ static UAFUISoundController *controller;
       if (!self.isLoading) {
         self.isLoading = YES;
         [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
-      }
+        //-- Handle mysterious load failures.
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kPlayerLoadTimeoutDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+          if (self.isLoading) {
+            [self didLoadSound];
+          }
+        });
+     }
     } else {
       //-- Can't handle.
       return NO;

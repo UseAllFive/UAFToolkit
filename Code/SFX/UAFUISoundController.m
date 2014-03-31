@@ -62,6 +62,10 @@ static UAFUISoundController *controller;
  */
 @property (nonatomic) BOOL shouldPlayOnLoad;
 /**
+ Internal hook for logic after loading finishes.
+ */
+- (void)didLoadSound;
+/**
  Internal hook for logic after playing starts.
  */
 - (void)didPlaySound;
@@ -149,22 +153,7 @@ static UAFUISoundController *controller;
           if (self.shouldDebug) DLog(@"Guarded: Player isn't ready to play.");
           return;
         }
-        if (self.isLoading) {
-          self.isLoading = NO;
-        }
-        if (!self.shouldPlayOnLoad || !self.isPlaying) {
-          self.shouldPlayOnLoad = YES;
-          if (self.shouldDebug) DLog(@"Guarded: Player shouldn't play.");
-          return;
-        }
-        if (self.loadCompletion) {
-          dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
-        }
-        if (self.isPlaying) {
-          [self.player play];
-          [self didPlaySound];
-          self.isPlaying = NO;
-        }
+        [self didLoadSound];
       }
     }
 
@@ -230,6 +219,7 @@ static UAFUISoundController *controller;
     } else if (isDifferentSound) {
       self.isPlaying = YES;
       if (!self.isLoading) {
+        self.isLoading = YES;
         [self.player replaceCurrentItemWithPlayerItem:soundFileObject];
       }
     } else {
@@ -265,6 +255,28 @@ static UAFUISoundController *controller;
 }
 
 #pragma mark - Private
+
+- (void)didLoadSound
+{
+  if (!self.isLoading) {
+    if (self.shouldDebug) DLog(@"Guarded: Redundant call.");
+    return;
+  }
+  self.isLoading = NO;
+  if (!self.shouldPlayOnLoad || !self.isPlaying) {
+    self.shouldPlayOnLoad = YES;
+    if (self.shouldDebug) DLog(@"Guarded: Player shouldn't play.");
+    return;
+  }
+  if (self.loadCompletion) {
+    dispatch_async(dispatch_get_main_queue(), self.loadCompletion);
+  }
+  if (self.isPlaying) {
+    [self.player play];
+    [self didPlaySound];
+    self.isPlaying = NO;
+  }
+}
 
 - (void)didPlaySound
 {

@@ -66,11 +66,14 @@ extern NSString *const kUAFDidPlayUISoundNotification;
  */
 - (BOOL)playSound:(NSString *)name withLoadCompletion:(void (^)(void))completion;
 /**
- TODO
+ Preload sound if possible. Will not automatically play sound upon loading.
+ @param name Sound file-name constant.
+ @return If sound was loaded.
  */
 - (BOOL)loadSound:(NSString *)name;
 /**
- TODO
+ Stop current sound if possible and stops the player from fulfilling subsequent
+ play requests.
  */
 - (void)stopCurrentSound;
 

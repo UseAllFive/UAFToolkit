@@ -49,6 +49,8 @@ static UAFUISoundController *controller;
 @property (copy, nonatomic) SoundLoadedBlock loadCompletion;
 /**
  Tracks controller state to prevent interrupting.
+ @note FIXME: This isn't being used like a true representation of the is-playing
+ state, although it should be.
  */
 @property (nonatomic) BOOL isPlaying;
 /**
